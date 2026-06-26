@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AQUA-8 | SCADA Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="scada-theme">
+    <!-- Navbar / Header SCADA -->
+    <header class="scada-header">
+        <div class="logo">
+            <span class="logo-icon">🌊⚡</span>
+            <span class="logo-text">AQUA-8</span>
+            <span class="badge-industrial">SMART WATER HUB</span>
+        </div>
+        <div class="system-status">
+            <div class="status-indicator online">SYS: ONLINE</div>
+            <div class="status-indicator warning">MANAURE_PILOT</div>
+            <div class="time-display" id="clock">00:00:00</div>
+        </div>
+    </header>
+
+    <main class="scada-main">
+        <!-- Visualización del Hub -->
+        <section class="hub-overview">
+            <div class="panel-header">
+                <h2>VISIÓN GENERAL DE PLANTA (AMDS)</h2>
+                <a href="docs/propuesta_relx.md" class="btn-scada" target="_blank">DOC_RELX.TXT</a>
+            </div>
+            <div class="overview-content">
+                <img src="assets/images/aqua8.png" alt="AQUA-8 Living Lab" class="hub-image">
+                <div class="kpi-overlay">
+                    <div class="kpi-box">
+                        <span class="kpi-label">PRODUCCIÓN</span>
+                        <span class="kpi-value" id="kpi-prod">10,000</span> <span class="kpi-unit">L/d</span>
+                    </div>
+                    <div class="kpi-box">
+                        <span class="kpi-label">ENERGÍA</span>
+                        <span class="kpi-value" id="kpi-energy">2.8</span> <span class="kpi-unit">kWh/m³</span>
+                    </div>
+                    <div class="kpi-box">
+                        <span class="kpi-label">RECUPERACIÓN</span>
+                        <span class="kpi-value">45</span> <span class="kpi-unit">%</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Arquitectura Modular SCADA -->
+        <section class="modular-architecture">
+            <div class="module-panel mod-a">
+                <div class="mod-header">
+                    <h3>MOD [A] CAPTACIÓN</h3>
+                    <span class="led green"></span>
+                </div>
+                <div class="mod-body">
+                    <div class="data-row"><span>Caudal Entrada:</span> <span class="data-val" id="val-inflow">925 L/h</span></div>
+                    <div class="data-row"><span>Presión Filtros:</span> <span class="data-val">2.5 bar</span></div>
+                    <div class="data-row"><span>Salinidad (Mar):</span> <span class="data-val">35,000 ppm</span></div>
+                    <div class="progress-bar"><div class="fill" style="width: 100%;"></div></div>
+                </div>
+            </div>
+
+            <div class="module-panel mod-b">
+                <div class="mod-header">
+                    <h3>MOD [B] ÓSMOSIS (RO)</h3>
+                    <span class="led green"></span>
+                </div>
+                <div class="mod-body">
+                    <div class="data-row"><span>Presión Bomba AP:</span> <span class="data-val" id="val-pressure">65.2 bar</span></div>
+                    <div class="data-row"><span>Recuperación Energía:</span> <span class="data-val active">ON (ERI)</span></div>
+                    <div class="data-row"><span>Flujo Salmuera:</span> <span class="data-val" id="val-brine">508 L/h</span></div>
+                    <div class="progress-bar"><div class="fill" style="width: 85%;"></div></div>
+                </div>
+            </div>
+
+            <div class="module-panel mod-c">
+                <div class="mod-header">
+                    <h3>MOD [C] AGUA POTABLE</h3>
+                    <span class="led green"></span>
+                </div>
+                <div class="mod-body">
+                    <div class="data-row"><span>Calidad (TDS):</span> <span class="data-val good" id="val-tds">115 ppm</span></div>
+                    <div class="data-row"><span>Nivel Tanque:</span> <span class="data-val" id="val-tank">75%</span></div>
+                    <div class="data-row"><span>Desinfección UV:</span> <span class="data-val active">ACTIVA</span></div>
+                    <div class="progress-bar"><div class="fill" id="tank-fill" style="width: 75%;"></div></div>
+                </div>
+            </div>
+
+            <div class="module-panel mod-d">
+                <div class="mod-header">
+                    <h3>MOD [D] ENERGÍA & SCADA</h3>
+                    <span class="led green blinking"></span>
+                </div>
+                <div class="mod-body">
+                    <div class="data-row"><span>Potencia Solar:</span> <span class="data-val" id="val-power">3.2 kW</span></div>
+                    <div class="data-row"><span>Radiación:</span> <span class="data-val">950 W/m²</span></div>
+                    <div class="data-row"><span>Consumo Red:</span> <span class="data-val">0.0 kW</span></div>
+                    <div class="progress-bar"><div class="fill warning" id="power-fill" style="width: 90%;"></div></div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Live Graph Section -->
+        <section class="graph-panel">
+            <div class="panel-header">
+                <h2>TENDENCIA DE PRODUCCIÓN VS ENERGÍA</h2>
+            </div>
+            <div class="graph-placeholder" id="live-graph">
+                <!-- Se dibuja con CSS/JS para simular un gráfico SCADA -->
+                <div class="graph-grid"></div>
+                <div class="graph-line production"></div>
+                <div class="graph-line energy"></div>
+                <div class="graph-legend">
+                    <span class="legend-item prod">● Producción (L/h)</span>
+                    <span class="legend-item ener">● Irradiancia (W/m²)</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="scada-footer">
+        <div>AQUA-8 INDUSTRIAL SYSTEMS // RELX CHALLENGE 2026 PROTOTYPE</div>
+        <div>SYS_VER: 1.0.4-BETA // COMM: SAT-LINK OK</div>
+    </footer>
+
+    <script src="js/app.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
