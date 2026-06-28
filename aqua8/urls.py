@@ -1,18 +1,10 @@
-from django.contrib import admin
-from django.urls import path, include
-from django.conf import settings
-from django.conf.urls.static import static
+from django.urls import path
+from . import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('api/proyectos/', include('proyectos.urls')),
-    path('api/capitulos/', include('capitulos.urls')),
-    path('api/documentos/', include('documentos.urls')),
-    path('api/memoria/', include('memoria_calculo.urls')),
-    path('api/versionado/', include('versionado.urls')),
-    path('api/usuarios/', include('usuarios.urls')),
-    path('api/aprobaciones/', include('aprobaciones.urls')),
+    path('telemetry/', views.telemetry, name='telemetry'),
+    path('alarms/', views.alarms, name='alarms'),
+    path('historical/', views.historical, name='historical'),
+    path('status/', views.system_status, name='system_status'),
+    path('simulate/', views.simulate_tick, name='simulate_tick'),
 ]
-
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
