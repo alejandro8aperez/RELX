@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Module, TelemetryReading, Alarm, SystemStatus, Proyecto, Capitulo, CapituloMaestro, Documento, MemoriaCalculo
+from .models import Module, TelemetryReading, Alarm, SystemStatus, Proyecto, Capitulo, CapituloMaestro, Documento, MemoriaCalculo, CategoriaPresupuesto, PartidaPresupuestaria
 
 class TelemetryReadingSerializer(serializers.ModelSerializer):
     class Meta:
@@ -84,6 +84,32 @@ class MemoriaCalculoSerializer(serializers.ModelSerializer):
         if obj.proyecto:
             return {'id': obj.proyecto.id, 'codigo': obj.proyecto.codigo}
         return None
+
+
+class PartidaPresupuestariaSerializer(serializers.ModelSerializer):
+    total_usd = serializers.SerializerMethodField()
+    total_cop = serializers.SerializerMethodField()
+
+    class Meta:
+        model = PartidaPresupuestaria
+        fields = ['id', 'categoria', 'numero', 'descripcion', 'cantidad', 'unidad',
+                  'costo_unitario_usd', 'costo_unitario_cop', 'notas', 'total_usd', 'total_cop']
+
+    def get_total_usd(self, obj): return round(obj.total_usd(), 2)
+    def get_total_cop(self, obj): return round(obj.total_cop(), 2)
+
+
+class CategoriaPresupuestoSerializer(serializers.ModelSerializer):
+    partidas = PartidaPresupuestariaSerializer(many=True, read_only=True)
+    total_usd = serializers.SerializerMethodField()
+    total_cop = serializers.SerializerMethodField()
+
+    class Meta:
+        model = CategoriaPresupuesto
+        fields = ['id', 'proyecto', 'nombre', 'orden', 'partidas', 'total_usd', 'total_cop']
+
+    def get_total_usd(self, obj): return round(obj.total_usd(), 2)
+    def get_total_cop(self, obj): return round(obj.total_cop(), 2)
 
 
 class SystemStatusSerializer(serializers.ModelSerializer):

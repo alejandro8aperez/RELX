@@ -5,11 +5,24 @@ from django.db.models import Avg
 from rest_framework import viewsets, status
 from rest_framework.decorators import api_view, action
 from rest_framework.response import Response
-from .models import Module, TelemetryReading, Alarm, SystemStatus, Proyecto, Capitulo, CapituloMaestro, Documento, MemoriaCalculo
+from .models import Module, TelemetryReading, Alarm, SystemStatus, Proyecto, Capitulo, CapituloMaestro, Documento, MemoriaCalculo, CategoriaPresupuesto, PartidaPresupuestaria
 from .serializers import (ModuleSerializer, TelemetryReadingSerializer, 
                           AlarmSerializer, SystemStatusSerializer,
                           ProyectoSerializer, CapituloSerializer, CapituloMaestroSerializer,
-                          DocumentoSerializer, MemoriaCalculoSerializer)
+                          DocumentoSerializer, MemoriaCalculoSerializer,
+                          CategoriaPresupuestoSerializer, PartidaPresupuestariaSerializer)
+
+
+class CategoriaPresupuestoViewSet(viewsets.ModelViewSet):
+    queryset = CategoriaPresupuesto.objects.all()
+    serializer_class = CategoriaPresupuestoSerializer
+    filterset_fields = ['proyecto']
+
+
+class PartidaPresupuestariaViewSet(viewsets.ModelViewSet):
+    queryset = PartidaPresupuestaria.objects.all()
+    serializer_class = PartidaPresupuestariaSerializer
+    filterset_fields = ['categoria']
 
 
 class ProyectoViewSet(viewsets.ModelViewSet):

@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'react-router-dom'
 import { useAuth } from '../../context/AuthContext'
-import { Menu, X, Bell, User, LogOut, Droplets, LayoutDashboard, FolderKanban, BookOpen, FileText, Calculator } from 'lucide-react'
+import { Menu, X, Bell, User, LogOut, Droplets, LayoutDashboard, FolderKanban, BookOpen, FileText, Calculator, DollarSign } from 'lucide-react'
 import { useState } from 'react'
 
 export default function Navbar({ children }) {
@@ -14,6 +14,7 @@ export default function Navbar({ children }) {
     { path: '/capitulos', label: 'Capítulos', icon: BookOpen },
     { path: '/documentos', label: 'Documentos', icon: FileText },
     { path: '/memoria', label: 'Memoria Cálculo', icon: Calculator },
+    { path: '/presupuesto', label: 'Presupuesto', icon: DollarSign },
   ]
 
   const isActive = (path) => location.pathname === path

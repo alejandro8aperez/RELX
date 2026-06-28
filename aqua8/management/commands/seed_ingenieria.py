@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand
-from aqua8.models import Proyecto, CapituloMaestro, Capitulo, Documento, MemoriaCalculo
+from aqua8.models import Proyecto, CapituloMaestro, Capitulo, Documento, MemoriaCalculo, CategoriaPresupuesto, PartidaPresupuestaria
 from django.utils import timezone
 from datetime import timedelta
 
@@ -8,7 +8,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **kwargs):
         self.stdout.write(self.style.WARNING('Eliminando datos existentes...'))
-        for model in [Documento, MemoriaCalculo, Capitulo, CapituloMaestro, Proyecto]:
+        for model in [PartidaPresupuestaria, CategoriaPresupuesto, Documento, MemoriaCalculo, Capitulo, CapituloMaestro, Proyecto]:
             try:
                 model.objects.all().delete()
             except Exception:
@@ -118,5 +118,78 @@ class Command(BaseCommand):
                 estado='aprobado',
             )
         self.stdout.write(self.style.SUCCESS(f'  OK {len(memorias_data)} memorias de calculo creadas'))
+
+        self.stdout.write(self.style.NOTICE('\nCreando presupuesto CAPEX...'))
+
+        categorias_data = [
+            ('CONTENEDOR Y OBRA', 1, [
+                (1, 'Contenedor 20\' maritimo usado/reacondicionado', 1, 'und', 3500.00, 13300000, 'High Cube preferible'),
+                (2, 'Acondicionamiento interior (aislamiento, anticorrosivo, ventilacion, iluminacion)', 1, 'global', 4500.00, 17100000, 'Pintura epoxica marina'),
+                (3, 'Obra civil menor (base, anclajes, drenaje)', 1, 'global', 1500.00, 5700000, 'Losa de concreto in situ'),
+            ]),
+            ('CAPTACION AGUA MAR', 2, [
+                (4, 'Tuberia HDPE PE100 PN10 Ø 2-3" - 200 m', 200, 'm', 18.00, 68400, 'Resistente UV y salinidad'),
+                (5, 'Bomba sumergible AISI 316L - captacion marina', 1, 'und', 2500.00, 9500000, 'Inoxidable, ~1-2 HP'),
+                (6, 'Filtro de toma + rejilla + boya de senalizacion', 1, 'global', 600.00, 2280000, 'Anti-incrustante'),
+                (7, 'Anclajes submarinos, lastres y tendido', 1, 'global', 1200.00, 4560000, 'Mano de obra buceo'),
+            ]),
+            ('PRE-TRATAMIENTO', 3, [
+                (8, 'Skid de Ultrafiltracion (UF) - hasta 1 m3/h', 1, 'und', 4500.00, 17100000, 'Modulos PVDF, hueco fibra'),
+                (9, 'Filtro multimedia + filtro de cartucho 5 µm', 1, 'global', 800.00, 3040000, 'Pre-pre-tratamiento'),
+                (10, 'Dosificacion quimica (antiescala, hipoclorito, bisulfito)', 1, 'global', 700.00, 2660000, 'Bombas dosificadoras + tanques'),
+            ]),
+            ('OSMOSIS REVERSA SWRO', 4, [
+                (11, 'Skid SWRO 3.000 L/dia - bomba alta presion china', 1, 'und', 7500.00, 28500000, 'Bomba CNP/similar acero inox'),
+                (12, 'Membranas SWRO chinas (Vontron/Keensen) 4040', 2, 'und', 350.00, 1330000, 'Vida util ~2-3 anios'),
+                (13, 'Carcasas (vessels) FRP para membranas', 2, 'und', 280.00, 1064000, 'Fibra reforzada'),
+                (14, 'Sensores OR (presion, conductividad, ORP, pH, flujo)', 1, 'kit', 900.00, 3420000, 'Esenciales para SCADA'),
+            ]),
+            ('POST-TRATAMIENTO', 5, [
+                (15, 'Esterilizador UV inox 1-2 m3/h', 1, 'und', 700.00, 2660000, 'Lampara amalgama'),
+                (16, 'Remineralizacion (calcita / dosificacion)', 1, 'global', 600.00, 2280000, 'Opcional pero recomendado'),
+                (17, 'Filtros de pulido (carbon activado)', 1, 'und', 250.00, 950000, 'Sabor / olor'),
+            ]),
+            ('ALMACENAMIENTO', 6, [
+                (18, 'Tanque pulmon 5.000 L (compra confirmada)', 1, 'und', 900.00, 3420000, 'Polietileno alimenticio'),
+                (19, 'Tanque para agua de rechazo / salmuera', 1, 'und', 400.00, 1520000, 'Antes de vertimiento autorizado'),
+                (20, 'Tuberias PVC/PPR internas + accesorios', 1, 'global', 1200.00, 4560000, 'Toda la red interna'),
+            ]),
+            ('ENERGIA SOLAR', 7, [
+                (21, 'Paneles solares monocristalinos 550W (~10-12 kWp)', 22, 'und', 130.00, 494000, 'Tier 1 chino (Jinko/LONGi)'),
+                (22, 'Inversor solar hibrido on-grid (sin baterias) 12 kW', 1, 'und', 2500.00, 9500000, 'MPPT, monitoreo remoto'),
+                (23, 'Estructura de soporte galvanizada (techo contenedor / suelo)', 1, 'global', 1200.00, 4560000, 'Anti-corrosion Guajira'),
+                (24, 'Cableado solar, protecciones DC/AC, puesta a tierra', 1, 'global', 1500.00, 5700000, 'Cumple RETIE'),
+            ]),
+            ('CONTROL Y SCADA', 8, [
+                (25, 'PLC + HMI local (SCADA basico)', 1, 'und', 1800.00, 6840000, 'Marca Delta/Siemens economico'),
+                (26, 'Tablero electrico + arrancadores + protecciones', 1, 'und', 1500.00, 5700000, 'IP65 para ambiente marino'),
+                (27, 'Sensores generales (nivel tanques, presiones)', 1, 'kit', 700.00, 2660000, 'Adicionales al kit OR'),
+            ]),
+            ('INGENIERIA Y PUESTA EN MARCHA', 9, [
+                (28, 'Ingenieria de detalle + planos electricos/hidraulicos', 1, 'global', 2500.00, 9500000, 'Memoria de calculo'),
+                (29, 'Transporte contenedor + equipos a Manaure', 1, 'global', 2500.00, 9500000, 'Desde Barranquilla/Cartagena'),
+                (30, 'Instalacion, montaje y mano de obra local', 1, 'global', 3000.00, 11400000, 'Considera logistica Guajira'),
+                (31, 'Puesta en marcha, pruebas, capacitacion operador', 1, 'global', 1500.00, 5700000, 'Incluye protocolo arranque'),
+            ]),
+        ]
+
+        for cat_nombre, cat_orden, partidas in categorias_data:
+            cat = CategoriaPresupuesto.objects.create(proyecto=proyecto, nombre=cat_nombre, orden=cat_orden)
+            for num, desc, cant, unidad, usd, cop, notas in partidas:
+                PartidaPresupuestaria.objects.create(
+                    categoria=cat, numero=num, descripcion=desc,
+                    cantidad=cant, unidad=unidad,
+                    costo_unitario_usd=usd, costo_unitario_cop=cop,
+                    notas=notas,
+                )
+            cat_total_usd = cat.total_usd()
+            cat_total_cop = cat.total_cop()
+            self.stdout.write(f'  OK {cat_nombre}: US$ {cat_total_usd:,.2f} / COP $ {cat_total_cop:,.0f}')
+
+        total_usd = sum(c.total_usd() for c in CategoriaPresupuesto.objects.filter(proyecto=proyecto))
+        total_cop = sum(c.total_cop() for c in CategoriaPresupuesto.objects.filter(proyecto=proyecto))
+        self.stdout.write(self.style.SUCCESS(f'  TOTAL CAPEX: US$ {total_usd:,.2f} / COP $ {total_cop:,.0f}'))
+        self.stdout.write(self.style.SUCCESS(f'  CONTINGENCIA 10%: US$ {total_usd*0.1:,.2f} / COP $ {total_cop*0.1:,.0f}'))
+        self.stdout.write(self.style.SUCCESS(f'  TOTAL + CONTINGENCIA: US$ {total_usd*1.1:,.2f} / COP $ {total_cop*1.1:,.0f}'))
 
         self.stdout.write(self.style.SUCCESS('\nDatos de ingenieria Manaure cargados exitosamente'))

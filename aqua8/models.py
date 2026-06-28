@@ -142,6 +142,51 @@ class MemoriaCalculo(models.Model):
         return self.titulo
 
 
+class CategoriaPresupuesto(models.Model):
+    proyecto = models.ForeignKey(Proyecto, on_delete=models.CASCADE, related_name='categorias_presupuesto')
+    nombre = models.CharField(max_length=200)
+    orden = models.IntegerField(default=0)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['orden']
+        verbose_name_plural = 'Categorias de Presupuesto'
+
+    def __str__(self):
+        return self.nombre
+
+    def total_usd(self):
+        return sum(p.total_usd() for p in self.partidas.all())
+
+    def total_cop(self):
+        return sum(p.total_cop() for p in self.partidas.all())
+
+
+class PartidaPresupuestaria(models.Model):
+    categoria = models.ForeignKey(CategoriaPresupuesto, on_delete=models.CASCADE, related_name='partidas')
+    numero = models.IntegerField()
+    descripcion = models.CharField(max_length=300)
+    cantidad = models.FloatField(default=1)
+    unidad = models.CharField(max_length=50, default='und')
+    costo_unitario_usd = models.DecimalField(max_digits=14, decimal_places=2)
+    costo_unitario_cop = models.DecimalField(max_digits=14, decimal_places=2)
+    notas = models.CharField(max_length=200, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['numero']
+        verbose_name_plural = 'Partidas presupuestarias'
+
+    def __str__(self):
+        return f"{self.numero}. {self.descripcion[:60]}"
+
+    def total_usd(self):
+        return self.cantidad * float(self.costo_unitario_usd)
+
+    def total_cop(self):
+        return self.cantidad * float(self.costo_unitario_cop)
+
+
 class SystemStatus(models.Model):
     platform_name = models.CharField(max_length=100, default='AQUA-8 Cloud')
     version = models.CharField(max_length=20, default='1.0.0')

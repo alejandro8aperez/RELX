@@ -7,6 +7,8 @@ router.register(r'proyectos', views.ProyectoViewSet)
 router.register(r'capitulos', views.CapituloViewSet)
 router.register(r'documentos', views.DocumentoViewSet)
 router.register(r'memoria', views.MemoriaCalculoViewSet)
+router.register(r'presupuesto/categorias', views.CategoriaPresupuestoViewSet)
+router.register(r'presupuesto/partidas', views.PartidaPresupuestariaViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),

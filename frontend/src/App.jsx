@@ -6,6 +6,7 @@ import Proyectos from './pages/Proyectos'
 import Capitulos from './pages/Capitulos'
 import Documentos from './pages/Documentos'
 import MemoriaCalculo from './pages/MemoriaCalculo'
+import Presupuesto from './pages/Presupuesto'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route path="/capitulos" element={<Capitulos />} />
             <Route path="/documentos" element={<Documentos />} />
             <Route path="/memoria" element={<MemoriaCalculo />} />
+            <Route path="/presupuesto" element={<Presupuesto />} />
           </Routes>
         </Layout>
       </BrowserRouter>
