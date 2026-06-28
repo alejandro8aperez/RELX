@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import api from '../api/axios'
-import { BookOpen, Plus, Search, Filter, CheckCircle, Clock, AlertTriangle, FileText, ChevronRight, BarChart3 } from 'lucide-react'
+import { BookOpen, Plus, Search, CheckCircle, Clock, AlertTriangle, FileText, ChevronRight, BarChart3 } from 'lucide-react'
 
 export default function Capitulos() {
   const [capitulos, setCapitulos] = useState([])
@@ -27,15 +27,6 @@ export default function Capitulos() {
       case 'en_revision': return <span className="badge-warning flex items-center gap-1"><Clock className="w-3 h-3"/> En Revisión</span>
       case 'pendiente': return <span className="badge-gray flex items-center gap-1"><AlertTriangle className="w-3 h-3"/> Pendiente</span>
       default: return <span className="badge-gray">{estado}</span>
-    }
-  }
-
-  const getProgresoColor = (estado) => {
-    switch(estado) {
-      case 'aprobado': return 'bg-emerald-500'
-      case 'en_revision': return 'bg-amber-500'
-      case 'pendiente': return 'bg-slate-300'
-      default: return 'bg-slate-300'
     }
   }
 
@@ -113,7 +104,7 @@ export default function Capitulos() {
                 {getEstadoBadge(c.estado)}
                 <div className="w-24">
                   <div className="progress-bar">
-                    <div className={`progress-fill-${c.estado === 'aprobado' ? 'green' : c.estado === 'en_revision' ? 'amber' : 'blue'} h-full rounded-full`} 
+                    <div className={`h-full rounded-full ${c.estado === 'aprobado' ? 'bg-emerald-500' : c.estado === 'en_revision' ? 'bg-amber-500' : 'bg-blue-500'}`} 
                          style={{width: c.estado === 'aprobado' ? '100%' : c.estado === 'en_revision' ? '60%' : '20%'}}></div>
                   </div>
                   <p className="text-[10px] text-slate-400 mt-1 text-center">
