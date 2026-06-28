@@ -45,7 +45,6 @@ export default function Dashboard() {
 
   return (
     <div className="space-y-6">
-      {/* KPIs */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
         {kpiCards.map((card, i) => {
           const Icon = card.icon
@@ -62,7 +61,6 @@ export default function Dashboard() {
         })}
       </div>
 
-      {/* Estado de Capítulos */}
       <div className="card">
         <div className="card-header">
           <h2 className="font-bold text-slate-800">Estado de Capítulos</h2>
@@ -88,15 +86,11 @@ export default function Dashboard() {
         </div>
       </div>
 
-      {/* Dos columnas */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {/* Proyectos Recientes */}
         <div className="card">
           <div className="card-header">
             <h2 className="font-bold text-slate-800">Proyectos Recientes</h2>
-            <Link to="/proyectos" className="text-sm text-blue-500 hover:text-blue-700 font-medium flex items-center gap-1">
-              Ver todos <ArrowRight className="w-4 h-4" />
-            </Link>
+            <Link to="/proyectos" className="text-sm text-blue-500 hover:text-blue-700 font-medium flex items-center gap-1">Ver todos <ArrowRight className="w-4 h-4" /></Link>
           </div>
           <div className="divide-y divide-slate-100">
             {proyectosRecientes.map(p => (
@@ -108,38 +102,30 @@ export default function Dashboard() {
                     <p className="text-xs text-slate-500">{p.nombre}</p>
                   </div>
                 </div>
-                <span className={`text-xs px-2.5 py-1 rounded-full capitalize ${p.estado === 'aprobado' ? 'badge-success' : p.estado === 'ejecucion' ? 'badge-info' : 'badge-gray'}`}>
-                  {p.estado.replace('_', ' ')}
-                </span>
+                <span className={`text-xs px-2.5 py-1 rounded-full capitalize ${p.estado === 'aprobado' ? 'badge-success' : p.estado === 'ejecucion' ? 'badge-info' : 'badge-gray'}`}>{p.estado.replace('_', ' ')}</span>
               </div>
             ))}
             {proyectosRecientes.length === 0 && <div className="p-8 text-center text-slate-500 text-sm">No hay proyectos registrados</div>}
           </div>
         </div>
 
-        {/* Capítulos que Requieren Atención */}
         <div className="card">
           <div className="card-header">
             <h2 className="font-bold text-slate-800">Capítulos Requieren Atención</h2>
-            <Link to="/capitulos" className="text-sm text-blue-500 hover:text-blue-700 font-medium flex items-center gap-1">
-              Ver todos <ArrowRight className="w-4 h-4" />
-            </Link>
+            <Link to="/capitulos" className="text-sm text-blue-500 hover:text-blue-700 font-medium flex items-center gap-1">Ver todos <ArrowRight className="w-4 h-4" /></Link>
           </div>
           <div className="divide-y divide-slate-100">
             {capitulosPendientes.map(c => (
               <div key={c.id} className="p-4 flex items-center justify-between hover:bg-slate-50 transition-colors">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-cyan-50 flex items-center justify-center text-cyan-700 font-bold text-xs">
-                    {c.capitulo_maestro?.codigo}
-                  </div>
+                  <div className="w-10 h-10 rounded-full bg-cyan-50 flex items-center justify-center text-cyan-700 font-bold text-xs">{c.capitulo_maestro?.codigo}</div>
                   <div>
                     <p className="font-medium text-sm text-slate-800">{c.capitulo_maestro?.nombre}</p>
                     <p className="text-xs text-slate-500">{c.proyecto?.codigo || 'Proyecto'}</p>
                   </div>
                 </div>
                 <span className={`text-xs px-2.5 py-1 rounded-full capitalize flex items-center gap-1 ${c.estado === 'en_revision' ? 'badge-warning' : 'badge-gray'}`}>
-                  {c.estado === 'en_revision' ? <AlertTriangle className="w-3 h-3" /> : <Clock className="w-3 h-3" />}
-                  {c.estado.replace('_', ' ')}
+                  {c.estado === 'en_revision' ? <AlertTriangle className="w-3 h-3" /> : <Clock className="w-3 h-3" />}{c.estado.replace('_', ' ')}
                 </span>
               </div>
             ))}
