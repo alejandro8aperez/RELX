@@ -3,11 +3,53 @@ from datetime import datetime, timedelta
 from django.utils import timezone
 from django.db.models import Avg
 from rest_framework import viewsets, status
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, action
 from rest_framework.response import Response
-from .models import Module, TelemetryReading, Alarm, SystemStatus
+from .models import Module, TelemetryReading, Alarm, SystemStatus, Proyecto, Capitulo, CapituloMaestro, Documento, MemoriaCalculo
 from .serializers import (ModuleSerializer, TelemetryReadingSerializer, 
-                          AlarmSerializer, SystemStatusSerializer)
+                          AlarmSerializer, SystemStatusSerializer,
+                          ProyectoSerializer, CapituloSerializer, CapituloMaestroSerializer,
+                          DocumentoSerializer, MemoriaCalculoSerializer)
+
+
+class ProyectoViewSet(viewsets.ModelViewSet):
+    queryset = Proyecto.objects.all()
+    serializer_class = ProyectoSerializer
+    filterset_fields = ['estado']
+    search_fields = ['codigo', 'nombre', 'ubicacion']
+
+
+class CapituloViewSet(viewsets.ModelViewSet):
+    queryset = Capitulo.objects.all()
+    serializer_class = CapituloSerializer
+    filterset_fields = ['estado', 'proyecto']
+
+    @action(detail=False, methods=['get'])
+    def proyecto(self, request):
+        queryset = self.filter_queryset(self.get_queryset())
+        page = self.paginate_queryset(queryset)
+        if page is not None:
+            serializer = self.get_serializer(page, many=True)
+            return self.get_paginated_response(serializer.data)
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
+
+
+class DocumentoViewSet(viewsets.ModelViewSet):
+    queryset = Documento.objects.all()
+    serializer_class = DocumentoSerializer
+    filterset_fields = ['tipo', 'proyecto']
+    search_fields = ['nombre', 'descripcion']
+
+
+class MemoriaCalculoViewSet(viewsets.ModelViewSet):
+    queryset = MemoriaCalculo.objects.all()
+    serializer_class = MemoriaCalculoSerializer
+    filterset_fields = ['estado', 'proyecto']
+    search_fields = ['titulo', 'tipo_calculo']
+
+
+@api_view(['GET'])
 
 @api_view(['GET'])
 def telemetry(request):

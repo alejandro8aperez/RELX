@@ -1,7 +1,15 @@
-from django.urls import path
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
 from . import views
 
+router = DefaultRouter()
+router.register(r'proyectos', views.ProyectoViewSet)
+router.register(r'capitulos', views.CapituloViewSet)
+router.register(r'documentos', views.DocumentoViewSet)
+router.register(r'memoria', views.MemoriaCalculoViewSet)
+
 urlpatterns = [
+    path('', include(router.urls)),
     path('telemetry/', views.telemetry, name='telemetry'),
     path('alarms/', views.alarms, name='alarms'),
     path('historical/', views.historical, name='historical'),

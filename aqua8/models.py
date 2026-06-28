@@ -58,6 +58,90 @@ class Alarm(models.Model):
     def __str__(self):
         return f"[{self.alarm_type.upper()}] {self.message[:50]}"
 
+class Proyecto(models.Model):
+    codigo = models.CharField(max_length=50, unique=True)
+    nombre = models.CharField(max_length=200)
+    descripcion = models.TextField(blank=True)
+    ubicacion = models.CharField(max_length=200, blank=True)
+    estado = models.CharField(max_length=20, choices=[
+        ('planificado', 'Planificado'),
+        ('ejecucion', 'En Ejecución'),
+        ('aprobado', 'Aprobado'),
+        ('completado', 'Completado'),
+    ], default='planificado')
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f"{self.codigo}: {self.nombre}"
+
+
+class CapituloMaestro(models.Model):
+    codigo = models.CharField(max_length=50, unique=True)
+    nombre = models.CharField(max_length=200)
+    descripcion = models.TextField(blank=True)
+
+    def __str__(self):
+        return f"{self.codigo}: {self.nombre}"
+
+
+class Capitulo(models.Model):
+    proyecto = models.ForeignKey(Proyecto, on_delete=models.CASCADE, related_name='capitulos')
+    capitulo_maestro = models.ForeignKey(CapituloMaestro, on_delete=models.CASCADE)
+    estado = models.CharField(max_length=20, choices=[
+        ('pendiente', 'Pendiente'),
+        ('en_revision', 'En Revisión'),
+        ('aprobado', 'Aprobado'),
+    ], default='pendiente')
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        unique_together = ('proyecto', 'capitulo_maestro')
+
+    def __str__(self):
+        return f"{self.proyecto.codigo} - {self.capitulo_maestro.codigo}"
+
+
+class Documento(models.Model):
+    proyecto = models.ForeignKey(Proyecto, on_delete=models.CASCADE, null=True, blank=True, related_name='documentos')
+    nombre = models.CharField(max_length=200)
+    descripcion = models.TextField(blank=True)
+    tipo = models.CharField(max_length=20, choices=[
+        ('pdf', 'PDF'),
+        ('docx', 'Word'),
+        ('xlsx', 'Excel'),
+        ('jpg', 'Imagen'),
+        ('dwg', 'AutoCAD'),
+        ('zip', 'Comprimido'),
+        ('otro', 'Otro'),
+    ], default='pdf')
+    tamano = models.CharField(max_length=20, blank=True)
+    archivo = models.FileField(upload_to='documentos/', null=True, blank=True)
+    fecha_subida = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.nombre
+
+
+class MemoriaCalculo(models.Model):
+    proyecto = models.ForeignKey(Proyecto, on_delete=models.CASCADE, null=True, blank=True, related_name='memorias')
+    titulo = models.CharField(max_length=200)
+    descripcion = models.TextField(blank=True)
+    tipo_calculo = models.CharField(max_length=100, blank=True)
+    resultado = models.CharField(max_length=200, blank=True)
+    estado = models.CharField(max_length=20, choices=[
+        ('pendiente', 'Pendiente'),
+        ('en_revision', 'En Revisión'),
+        ('aprobado', 'Aprobado'),
+    ], default='pendiente')
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.titulo
+
+
 class SystemStatus(models.Model):
     platform_name = models.CharField(max_length=100, default='AQUA-8 Cloud')
     version = models.CharField(max_length=20, default='1.0.0')

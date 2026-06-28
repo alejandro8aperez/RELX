@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Module, TelemetryReading, Alarm, SystemStatus
+from .models import Module, TelemetryReading, Alarm, SystemStatus, Proyecto, Capitulo, CapituloMaestro, Documento, MemoriaCalculo
 
 class TelemetryReadingSerializer(serializers.ModelSerializer):
     class Meta:
@@ -26,6 +26,65 @@ class ModuleSerializer(serializers.ModelSerializer):
         if reading:
             return TelemetryReadingSerializer(reading).data
         return None
+
+class ProyectoSerializer(serializers.ModelSerializer):
+    capitulos_count = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Proyecto
+        fields = ['id', 'codigo', 'nombre', 'descripcion', 'ubicacion', 'estado', 'capitulos_count', 'created_at', 'updated_at']
+
+    def get_capitulos_count(self, obj):
+        return obj.capitulos.count()
+
+
+class CapituloMaestroSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CapituloMaestro
+        fields = ['id', 'codigo', 'nombre', 'descripcion']
+
+
+class CapituloSerializer(serializers.ModelSerializer):
+    proyecto_info = serializers.SerializerMethodField()
+    capitulo_maestro_info = CapituloMaestroSerializer(source='capitulo_maestro', read_only=True)
+    documentos_count = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Capitulo
+        fields = ['id', 'proyecto', 'proyecto_info', 'capitulo_maestro', 'capitulo_maestro_info', 'estado', 'documentos_count', 'created_at', 'updated_at']
+
+    def get_proyecto_info(self, obj):
+        return {'id': obj.proyecto.id, 'codigo': obj.proyecto.codigo, 'nombre': obj.proyecto.nombre}
+
+    def get_documentos_count(self, obj):
+        return Documento.objects.filter(proyecto=obj.proyecto).count()
+
+
+class DocumentoSerializer(serializers.ModelSerializer):
+    proyecto_info = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Documento
+        fields = ['id', 'proyecto', 'proyecto_info', 'nombre', 'descripcion', 'tipo', 'tamano', 'fecha_subida']
+
+    def get_proyecto_info(self, obj):
+        if obj.proyecto:
+            return {'id': obj.proyecto.id, 'codigo': obj.proyecto.codigo}
+        return None
+
+
+class MemoriaCalculoSerializer(serializers.ModelSerializer):
+    proyecto_info = serializers.SerializerMethodField()
+
+    class Meta:
+        model = MemoriaCalculo
+        fields = ['id', 'proyecto', 'proyecto_info', 'titulo', 'descripcion', 'tipo_calculo', 'resultado', 'estado', 'created_at', 'updated_at']
+
+    def get_proyecto_info(self, obj):
+        if obj.proyecto:
+            return {'id': obj.proyecto.id, 'codigo': obj.proyecto.codigo}
+        return None
+
 
 class SystemStatusSerializer(serializers.ModelSerializer):
     uptime_seconds = serializers.SerializerMethodField()
