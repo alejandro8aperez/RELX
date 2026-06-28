@@ -8,9 +8,12 @@ class Command(BaseCommand):
 
     def handle(self, *args, **kwargs):
         self.stdout.write(self.style.WARNING('⚠️  Eliminando datos existentes...'))
-        TelemetryReading.objects.all().delete()
-        Module.objects.all().delete()
-        SystemStatus.objects.all().delete()
+        try:
+            TelemetryReading.objects.all().delete()
+            Module.objects.all().delete()
+            SystemStatus.objects.all().delete()
+        except Exception as e:
+            self.stdout.write(self.style.WARNING(f'  ⚠ No existing data to clear: {e}'))
 
         self.stdout.write(self.style.NOTICE('🌊 Creando módulos AQUA-8...'))
 
