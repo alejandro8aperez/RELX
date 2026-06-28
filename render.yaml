@@ -1,0 +1,35 @@
+databases:
+  - name: aqua8-db
+    plan: free
+    region: oregon
+    databaseName: aqua8
+    user: aqua8
+
+services:
+  - type: web
+    name: aqua8
+    plan: free
+    region: oregon
+    branch: main
+    runtime: python
+    buildCommand: ./build.sh
+    startCommand: gunicorn aqua8_project.wsgi:application --bind 0.0.0.0:$PORT --workers 2 --timeout 120 --access-logfile -
+    healthCheckPath: /api/status/
+    autoDeploy: true
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: aqua8_project.settings
+      - key: DEBUG
+        value: "False"
+      - key: SECRET_KEY
+        generateValue: true
+      - key: ALLOWED_HOSTS
+        value: localhost,127.0.0.1,.onrender.com
+      - key: CORS_ALLOWED_ORIGINS
+        value: http://localhost:5173,https://aqua8.onrender.com
+      - key: DATABASE_URL
+        fromDatabase:
+          name: aqua8-db
+          property: connectionString
+      - key: PYTHON_VERSION
+        value: "3.12.10"
