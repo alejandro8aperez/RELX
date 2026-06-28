@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import api from '../api/axios'
-import { FolderPlus, Search, Filter, ArrowUpDown, MoreHorizontal, Calendar, MapPin, Users, CheckCircle, Clock, AlertTriangle, FileText } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import { FolderPlus, Search, Filter, ArrowUpDown, MoreHorizontal, MapPin, FileText, CheckCircle, Clock, AlertTriangle } from 'lucide-react'
 
 export default function Proyectos() {
   const [proyectos, setProyectos] = useState([])
