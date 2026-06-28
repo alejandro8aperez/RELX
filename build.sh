@@ -18,4 +18,7 @@ python manage.py migrate --noinput
 echo "[5/5] Seeding initial data..."
 python manage.py seed_data --noinput 2>/dev/null || echo "  ⚠ seed_data skipped or already seeded"
 
+echo "[6/6] Creating admin user..."
+python manage.py create_admin
+
 echo "=== Build complete ==="
