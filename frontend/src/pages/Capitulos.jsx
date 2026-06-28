@@ -30,11 +30,10 @@ export default function Capitulos() {
     }
   }
 
-  if (loading) return <div className="flex items-center justify-center h-64"><div className="animate-spin w-8 h-8 border-4 border-blue-500 border-t-transparent rounded-full"></div></div>
+  if (loading) return <div className="flex items-center justify-center h-64"><div className="animate-spin w-8 h-8 border-4 border-t-transparent rounded-full" style={{ borderColor: '#1e3a5f', borderTopColor: '#667EEA' }}></div></div>
 
   return (
     <div className="space-y-6">
-      {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
           <h1 className="text-2xl font-bold text-slate-800">Capítulos</h1>
@@ -45,7 +44,6 @@ export default function Capitulos() {
         </button>
       </div>
 
-      {/* KPIs rápidos */}
       <div className="grid grid-cols-3 gap-4">
         <div className="kpi-card border-emerald-200">
           <div className="flex items-center justify-between">
@@ -70,20 +68,18 @@ export default function Capitulos() {
         </div>
       </div>
 
-      {/* Filtros */}
       <div className="flex gap-2">
         {['todos', 'aprobado', 'en_revision', 'pendiente'].map(estado => (
           <button 
             key={estado}
             onClick={() => setFiltroEstado(estado)}
-            className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${filtroEstado === estado ? 'bg-blue-500 text-white shadow-md' : 'bg-white border border-slate-200 text-slate-600 hover:border-blue-300'}`}
+            className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${filtroEstado === estado ? 'bg-indigo-600 text-white shadow-md' : 'bg-white border border-slate-200 text-slate-600 hover:border-indigo-300'}`}
           >
             {estado === 'todos' ? 'Todos' : estado === 'en_revision' ? 'En Revisión' : estado.charAt(0).toUpperCase() + estado.slice(1)}
           </button>
         ))}
       </div>
 
-      {/* Lista de capítulos */}
       <div className="space-y-3">
         {capitulosFiltrados.map(c => (
           <div key={c.id} className="card hover:shadow-md transition-shadow">
@@ -104,14 +100,14 @@ export default function Capitulos() {
                 {getEstadoBadge(c.estado)}
                 <div className="w-24">
                   <div className="progress-bar">
-                    <div className={`h-full rounded-full ${c.estado === 'aprobado' ? 'bg-emerald-500' : c.estado === 'en_revision' ? 'bg-amber-500' : 'bg-blue-500'}`} 
+                    <div className={`h-full rounded-full ${c.estado === 'aprobado' ? 'bg-emerald-500' : c.estado === 'en_revision' ? 'bg-amber-500' : 'bg-indigo-500'}`} 
                          style={{width: c.estado === 'aprobado' ? '100%' : c.estado === 'en_revision' ? '60%' : '20%'}}></div>
                   </div>
                   <p className="text-[10px] text-slate-400 mt-1 text-center">
                     {c.estado === 'aprobado' ? '100%' : c.estado === 'en_revision' ? '60%' : '20%'}
                   </p>
                 </div>
-                <button className="p-2 hover:bg-slate-100 rounded-lg text-slate-400 hover:text-blue-600 transition-colors">
+                <button className="p-2 hover:bg-slate-100 rounded-lg text-slate-400 hover:text-indigo-600 transition-colors">
                   <ChevronRight className="w-5 h-5"/>
                 </button>
               </div>

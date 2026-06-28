@@ -31,11 +31,10 @@ export default function Proyectos() {
     }
   }
 
-  if (loading) return <div className="flex items-center justify-center h-64"><div className="animate-spin w-8 h-8 border-4 border-blue-500 border-t-transparent rounded-full"></div></div>
+  if (loading) return <div className="flex items-center justify-center h-64"><div className="animate-spin w-8 h-8 border-4 border-t-transparent rounded-full" style={{ borderColor: '#1e3a5f', borderTopColor: '#667EEA' }}></div></div>
 
   return (
     <div className="space-y-6">
-      {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
           <h1 className="text-2xl font-bold text-slate-800">Proyectos</h1>
@@ -46,7 +45,6 @@ export default function Proyectos() {
         </button>
       </div>
 
-      {/* Filtros */}
       <div className="card">
         <div className="p-4 flex flex-col sm:flex-row gap-3">
           <div className="relative flex-1">
@@ -64,7 +62,6 @@ export default function Proyectos() {
         </div>
       </div>
 
-      {/* Tabla */}
       <div className="card">
         <div className="overflow-x-auto">
           <table className="data-table">
@@ -82,12 +79,12 @@ export default function Proyectos() {
               {proyectosFiltrados.map(p => (
                 <tr key={p.id}>
                   <td>
-                    <span className="font-mono text-sm font-bold text-blue-600 bg-blue-50 px-2 py-1 rounded-md">{p.codigo}</span>
+                    <span className="font-mono text-sm font-bold text-indigo-600 bg-indigo-50 px-2 py-1 rounded-md">{p.codigo}</span>
                   </td>
                   <td>
                     <div className="flex items-center gap-3">
-                      <div className="p-2 bg-blue-50 rounded-lg">
-                        <FolderPlus className="w-5 h-5 text-blue-600"/>
+                      <div className="p-2 bg-indigo-50 rounded-lg">
+                        <FolderPlus className="w-5 h-5 text-indigo-600"/>
                       </div>
                       <div>
                         <p className="font-semibold text-sm text-slate-800">{p.nombre}</p>

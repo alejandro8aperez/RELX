@@ -39,11 +39,10 @@ export default function Documentos() {
     ? documentos 
     : documentos.filter(d => d.tipo?.toLowerCase() === tipoFiltro)
 
-  if (loading) return <div className="flex items-center justify-center h-64"><div className="animate-spin w-8 h-8 border-4 border-blue-500 border-t-transparent rounded-full"></div></div>
+  if (loading) return <div className="flex items-center justify-center h-64"><div className="animate-spin w-8 h-8 border-4 border-t-transparent rounded-full" style={{ borderColor: '#1e3a5f', borderTopColor: '#667EEA' }}></div></div>
 
   return (
     <div className="space-y-6">
-      {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
           <h1 className="text-2xl font-bold text-slate-800">Documentos</h1>
@@ -54,10 +53,9 @@ export default function Documentos() {
         </button>
       </div>
 
-      {/* Estadísticas */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         {[
-          { label: 'Total', value: documentos.length, icon: FileText, color: 'text-blue-600', bg: 'bg-blue-50' },
+          { label: 'Total', value: documentos.length, icon: FileText, color: 'text-indigo-600', bg: 'bg-indigo-50' },
           { label: 'PDFs', value: documentos.filter(d => d.tipo === 'pdf').length, icon: FileText, color: 'text-red-600', bg: 'bg-red-50' },
           { label: 'Excel', value: documentos.filter(d => ['xlsx','xls'].includes(d.tipo)).length, icon: FileSpreadsheet, color: 'text-emerald-600', bg: 'bg-emerald-50' },
           { label: 'Imágenes', value: documentos.filter(d => ['jpg','png','jpeg'].includes(d.tipo)).length, icon: FileImage, color: 'text-purple-600', bg: 'bg-purple-50' },
@@ -74,30 +72,28 @@ export default function Documentos() {
         ))}
       </div>
 
-      {/* Filtros */}
       <div className="flex flex-wrap gap-2">
         {['todos', 'pdf', 'xlsx', 'jpg'].map(tipo => (
           <button 
             key={tipo}
             onClick={() => setTipoFiltro(tipo)}
-            className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${tipoFiltro === tipo ? 'bg-blue-500 text-white shadow-md' : 'bg-white border border-slate-200 text-slate-600 hover:border-blue-300'}`}
+            className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${tipoFiltro === tipo ? 'bg-indigo-600 text-white shadow-md' : 'bg-white border border-slate-200 text-slate-600 hover:border-indigo-300'}`}
           >
             {tipo === 'todos' ? 'Todos' : tipo.toUpperCase()}
           </button>
         ))}
       </div>
 
-      {/* Grid de documentos */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {documentosFiltrados.map(doc => (
           <div key={doc.id} className="card hover:shadow-lg transition-all duration-300 group">
             <div className="p-5">
               <div className="flex items-start justify-between mb-4">
-                <div className="p-3 bg-slate-50 rounded-xl group-hover:bg-blue-50 transition-colors">
+                <div className="p-3 bg-slate-50 rounded-xl group-hover:bg-indigo-50 transition-colors">
                   {getFileIcon(doc.tipo)}
                 </div>
                 <div className="flex gap-1">
-                  <button className="p-1.5 hover:bg-slate-100 rounded-lg text-slate-400 hover:text-blue-600 transition-colors">
+                  <button className="p-1.5 hover:bg-slate-100 rounded-lg text-slate-400 hover:text-indigo-600 transition-colors">
                     <Eye className="w-4 h-4"/>
                   </button>
                   <button className="p-1.5 hover:bg-slate-100 rounded-lg text-slate-400 hover:text-emerald-600 transition-colors">
@@ -120,7 +116,7 @@ export default function Documentos() {
             </div>
             <div className="px-5 py-3 bg-slate-50 border-t border-slate-100 flex items-center justify-between">
               <span className="text-xs text-slate-500">{doc.proyecto?.codigo || 'Sin proyecto'}</span>
-              <span className="text-xs font-medium text-blue-600">{doc.tamano || '—'}</span>
+              <span className="text-xs font-medium text-indigo-600">{doc.tamano || '—'}</span>
             </div>
           </div>
         ))}

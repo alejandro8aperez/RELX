@@ -25,11 +25,10 @@ export default function MemoriaCalculo() {
     }
   }
 
-  if (loading) return <div className="flex items-center justify-center h-64"><div className="animate-spin w-8 h-8 border-4 border-blue-500 border-t-transparent rounded-full"></div></div>
+  if (loading) return <div className="flex items-center justify-center h-64"><div className="animate-spin w-8 h-8 border-4 border-t-transparent rounded-full" style={{ borderColor: '#1e3a5f', borderTopColor: '#667EEA' }}></div></div>
 
   return (
     <div className="space-y-6">
-      {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
           <h1 className="text-2xl font-bold text-slate-800">Memoria de Cálculo</h1>
@@ -40,10 +39,9 @@ export default function MemoriaCalculo() {
         </button>
       </div>
 
-      {/* Estadísticas */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         {[
-          { label: 'Total Memorias', value: memorias.length, icon: Calculator, color: 'text-blue-600', bg: 'bg-blue-50' },
+          { label: 'Total Memorias', value: memorias.length, icon: Calculator, color: 'text-indigo-600', bg: 'bg-indigo-50' },
           { label: 'Aprobadas', value: memorias.filter(m => m.estado === 'aprobado').length, icon: CheckCircle, color: 'text-emerald-600', bg: 'bg-emerald-50' },
           { label: 'En Revisión', value: memorias.filter(m => m.estado === 'en_revision').length, icon: Clock, color: 'text-amber-600', bg: 'bg-amber-50' },
           { label: 'Pendientes', value: memorias.filter(m => m.estado === 'pendiente').length, icon: AlertTriangle, color: 'text-slate-600', bg: 'bg-slate-100' },
@@ -60,7 +58,6 @@ export default function MemoriaCalculo() {
         ))}
       </div>
 
-      {/* Lista de memorias */}
       <div className="card">
         <div className="card-header">
           <h2 className="font-bold text-slate-800">Memorias de Cálculo</h2>
@@ -88,7 +85,7 @@ export default function MemoriaCalculo() {
                 <div className="flex items-center gap-3">
                   {getEstadoBadge(mem.estado)}
                   <div className="flex gap-1">
-                    <button className="p-2 hover:bg-slate-200 rounded-lg text-slate-400 hover:text-blue-600 transition-colors">
+                    <button className="p-2 hover:bg-slate-200 rounded-lg text-slate-400 hover:text-indigo-600 transition-colors">
                       <Eye className="w-4 h-4"/>
                     </button>
                     <button className="p-2 hover:bg-slate-200 rounded-lg text-slate-400 hover:text-emerald-600 transition-colors">
