@@ -3,131 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AQUA-8 | SCADA Dashboard</title>
+    <title>AQUA-8 | Smart Water Hub</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/static/css/styles.css">
 </head>
 <body>
-    <!-- Header ERP Style -->
-    <header class="scada-header">
-        <div class="logo">
-            <span class="logo-icon">A8</span>
-            <span class="logo-text">AQUA-8</span>
-            <span class="badge-industrial">SMART WATER HUB</span>
+    <header class="header">
+        <div class="header-logo">
+            <span class="header-logo-icon">A8</span>
+            <span class="header-logo-text">AQUA-8</span>
+            <span class="header-badge">SMART WATER HUB</span>
         </div>
-        <div class="system-status">
-            <div class="status-indicator online">SYS: ONLINE</div>
-            <div class="status-indicator warning">MANAURE, GUAJIRA</div>
-            <div class="time-display" id="clock">00:00:00</div>
+        <div class="header-status">
+            <span class="status-pill online">SYS: ONLINE</span>
+            <span class="status-pill location">MANAURE, GUAJIRA</span>
+            <span class="header-clock" id="clock">00:00:00</span>
         </div>
     </header>
 
-    <main class="scada-main">
-        <!-- Hub Overview -->
-        <section class="hub-overview">
-            <div class="panel-header">
+    <main class="main">
+        <section class="card hero-card">
+            <div class="card-header">
                 <h2>Visión General de Planta</h2>
-                <a href="/static/docs/propuesta_relx.md" class="btn-scada" target="_blank">Ver Propuesta RELX</a>
+                <a href="/static/docs/propuesta_relx.md" class="btn btn-primary" target="_blank">Ver Propuesta RELX</a>
             </div>
-            <div class="overview-content">
-                <img src="/static/assets/images/aqua8.png" alt="AQUA-8 Living Lab" class="hub-image">
-                <div class="kpi-overlay">
-                    <div class="kpi-box">
-                        <span class="kpi-label">Producción</span>
-                        <span class="kpi-value" id="kpi-prod">10,000</span>
-                        <span class="kpi-unit">L/d</span>
-                    </div>
-                    <div class="kpi-box">
-                        <span class="kpi-label">Energía</span>
-                        <span class="kpi-value" id="kpi-energy">2.8</span>
-                        <span class="kpi-unit">kWh/m³</span>
-                    </div>
-                    <div class="kpi-box">
-                        <span class="kpi-label">Recuperación</span>
-                        <span class="kpi-value">45</span>
-                        <span class="kpi-unit">%</span>
-                    </div>
+            <img src="/static/assets/images/aqua8.png" alt="AQUA-8 Living Lab" class="hero-image">
+            <div class="hero-overlay">
+                <div class="kpi">
+                    <span class="kpi-label">Producción</span>
+                    <span class="kpi-value" id="kpi-prod">10,000</span>
+                    <span class="kpi-unit">L/d</span>
+                </div>
+                <div class="kpi">
+                    <span class="kpi-label">Energía</span>
+                    <span class="kpi-value" id="kpi-energy">2.8</span>
+                    <span class="kpi-unit">kWh/m³</span>
+                </div>
+                <div class="kpi">
+                    <span class="kpi-label">Recuperación</span>
+                    <span class="kpi-value">45</span>
+                    <span class="kpi-unit">%</span>
                 </div>
             </div>
         </section>
 
-        <!-- Modules -->
-        <section class="modular-architecture">
-            <div class="module-panel mod-a">
-                <div class="mod-header">
+        <section class="modules-column">
+            <div class="card module-card mod-a">
+                <div class="module-header">
                     <h3>Captación y Pretratamiento</h3>
-                    <span class="led green"></span>
+                    <span class="module-led green"></span>
                 </div>
-                <div class="mod-body">
-                    <div class="data-row"><span>Caudal Entrada</span> <span class="data-val" id="val-inflow">925 L/h</span></div>
-                    <div class="data-row"><span>Presión Filtros</span> <span class="data-val">2.5 bar</span></div>
-                    <div class="data-row"><span>Salinidad (Mar)</span> <span class="data-val">35,000 ppm</span></div>
-                    <div class="progress-bar"><div class="fill" style="width: 100%;"></div></div>
+                <div class="module-body">
+                    <div class="module-row"><span>Caudal Entrada</span> <span class="module-val" id="val-inflow">925 L/h</span></div>
+                    <div class="module-row"><span>Presión Filtros</span> <span class="module-val">2.5 bar</span></div>
+                    <div class="module-row"><span>Salinidad (Mar)</span> <span class="module-val">35,000 ppm</span></div>
+                    <div class="module-bar"><div class="module-bar-fill" style="width: 100%;"></div></div>
                 </div>
             </div>
 
-            <div class="module-panel mod-b">
-                <div class="mod-header">
+            <div class="card module-card mod-b">
+                <div class="module-header">
                     <h3>Ósmosis Inversa (RO)</h3>
-                    <span class="led green"></span>
+                    <span class="module-led green"></span>
                 </div>
-                <div class="mod-body">
-                    <div class="data-row"><span>Presión Bomba AP</span> <span class="data-val" id="val-pressure">65.2 bar</span></div>
-                    <div class="data-row"><span>Recuperación Energía</span> <span class="data-val active">Activo (ERI)</span></div>
-                    <div class="data-row"><span>Flujo Salmuera</span> <span class="data-val" id="val-brine">508 L/h</span></div>
-                    <div class="progress-bar"><div class="fill" style="width: 85%;"></div></div>
+                <div class="module-body">
+                    <div class="module-row"><span>Presión Bomba AP</span> <span class="module-val" id="val-pressure">65.2 bar</span></div>
+                    <div class="module-row"><span>Recuperación Energía</span> <span class="module-val active">Activo (ERI)</span></div>
+                    <div class="module-row"><span>Flujo Salmuera</span> <span class="module-val" id="val-brine">508 L/h</span></div>
+                    <div class="module-bar"><div class="module-bar-fill" style="width: 85%;"></div></div>
                 </div>
             </div>
 
-            <div class="module-panel mod-c">
-                <div class="mod-header">
+            <div class="card module-card mod-c">
+                <div class="module-header">
                     <h3>Postratamiento y Almacenamiento</h3>
-                    <span class="led green"></span>
+                    <span class="module-led green"></span>
                 </div>
-                <div class="mod-body">
-                    <div class="data-row"><span>Calidad (TDS)</span> <span class="data-val good" id="val-tds">115 ppm</span></div>
-                    <div class="data-row"><span>Nivel Tanque</span> <span class="data-val" id="val-tank">75%</span></div>
-                    <div class="data-row"><span>Desinfección UV</span> <span class="data-val active">Activa</span></div>
-                    <div class="progress-bar"><div class="fill" id="tank-fill" style="width: 75%;"></div></div>
+                <div class="module-body">
+                    <div class="module-row"><span>Calidad (TDS)</span> <span class="module-val good" id="val-tds">115 ppm</span></div>
+                    <div class="module-row"><span>Nivel Tanque</span> <span class="module-val" id="val-tank">75%</span></div>
+                    <div class="module-row"><span>Desinfección UV</span> <span class="module-val active">Activa</span></div>
+                    <div class="module-bar"><div class="module-bar-fill" id="tank-fill" style="width: 75%;"></div></div>
                 </div>
             </div>
 
-            <div class="module-panel mod-d">
-                <div class="mod-header">
+            <div class="card module-card mod-d">
+                <div class="module-header">
                     <h3>Energía Solar y SCADA</h3>
-                    <span class="led green blinking"></span>
+                    <span class="module-led green blinking"></span>
                 </div>
-                <div class="mod-body">
-                    <div class="data-row"><span>Potencia Solar</span> <span class="data-val" id="val-power">3.2 kW</span></div>
-                    <div class="data-row"><span>Radiación</span> <span class="data-val">950 W/m²</span></div>
-                    <div class="data-row"><span>Consumo Red</span> <span class="data-val">0.0 kW</span></div>
-                    <div class="progress-bar"><div class="fill warning" id="power-fill" style="width: 90%;"></div></div>
+                <div class="module-body">
+                    <div class="module-row"><span>Potencia Solar</span> <span class="module-val" id="val-power">3.2 kW</span></div>
+                    <div class="module-row"><span>Radiación</span> <span class="module-val">950 W/m²</span></div>
+                    <div class="module-row"><span>Consumo Red</span> <span class="module-val">0.0 kW</span></div>
+                    <div class="module-bar"><div class="module-bar-fill warning" id="power-fill" style="width: 90%;"></div></div>
                 </div>
             </div>
         </section>
-        
-        <!-- Graph -->
-        <section class="graph-panel">
-            <div class="panel-header">
+
+        <section class="card graph-card">
+            <div class="card-header">
                 <h2>Tendencia de Producción vs Energía</h2>
             </div>
-            <div class="graph-placeholder" id="live-graph">
+            <div class="graph-container" id="live-graph">
                 <div class="graph-grid"></div>
-                <div class="graph-line production"></div>
+                <div class="graph-line prod"></div>
                 <div class="graph-line energy"></div>
                 <div class="graph-legend">
                     <span class="legend-item prod">● Producción (L/h)</span>
-                    <span class="legend-item ener">● Irradiancia (W/m²)</span>
+                    <span class="legend-item energy">● Irradiancia (W/m²)</span>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="scada-footer">
-        <div>AQUA-8 — RELX Environmental Challenge 2026</div>
-        <div>v1.0</div>
+    <footer class="footer">
+        <span>AQUA-8 — RELX Environmental Challenge 2026</span>
+        <span>v1.0</span>
     </footer>
 
     <script src="/static/js/app.js"></script>
