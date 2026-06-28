@@ -1,25 +1,24 @@
 :root {
-    /* SCADA Colors */
-    --bg-main: #0a0e17;
-    --bg-panel: #111827;
-    --bg-darker: #030712;
-    --text-main: #9ca3af;
-    --text-light: #e5e7eb;
-    
-    --brand-blue: #0ea5e9;
-    --brand-blue-glow: rgba(14, 165, 233, 0.5);
-    
-    --status-green: #10b981;
-    --status-red: #ef4444;
-    --status-yellow: #f59e0b;
-    
-    /* Fonts */
-    --font-data: 'Share Tech Mono', monospace;
+    --primary: #4F46E5;
+    --primary-hover: #4338CA;
+    --gradient-start: #667EEA;
+    --gradient-end: #764BA2;
+    --bg-main: #f5f7fa;
+    --bg-card: #ffffff;
+    --bg-input: #f8fafc;
+    --text-main: #1a202c;
+    --text-muted: #718096;
+    --text-light: #94a3b8;
+    --border-color: #e2e8f0;
+    --success: #10B981;
+    --danger: #EF4444;
+    --warning: #F59E0B;
+    --sidebar-bg: linear-gradient(180deg, #0a1628 0%, #1e293b 100%);
+    --sidebar-border: #1e3a5f;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+    --shadow-md: 0 4px 20px rgba(0,0,0,0.08);
+    --shadow-lg: 0 10px 30px rgba(0,0,0,0.12);
     --font-ui: 'Inter', sans-serif;
-    
-    /* Effects */
-    --panel-border: 1px solid #1f2937;
-    --panel-border-hl: 1px solid #374151;
 }
 
 * {
@@ -28,105 +27,132 @@
     box-sizing: border-box;
 }
 
-body.scada-theme {
-    background-color: var(--bg-main);
+body {
+    background: var(--bg-main);
     color: var(--text-main);
     font-family: var(--font-ui);
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
 }
 
 h2, h3 {
     font-weight: 600;
-    letter-spacing: 0.05em;
-    color: var(--text-light);
+    color: var(--text-main);
 }
 
-/* Header */
+/* Header - ERP style TopBar */
 .scada-header {
-    background-color: var(--bg-darker);
-    border-bottom: var(--panel-border);
-    padding: 1rem 2rem;
+    background: rgba(10,22,40,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--sidebar-border);
+    padding: 0 2rem;
+    height: 56px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 .logo {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 0.75rem;
 }
 
 .logo-icon {
-    font-size: 1.5rem;
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    color: white;
 }
 
 .logo-text {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: 800;
-    color: var(--text-light);
-    letter-spacing: 0.1em;
+    color: #e2e8f0;
+    letter-spacing: 0.05em;
 }
 
 .badge-industrial {
-    background: #1e293b;
-    color: var(--brand-blue);
-    padding: 0.25rem 0.75rem;
-    font-family: var(--font-data);
-    font-size: 0.75rem;
-    border: 1px solid var(--brand-blue);
+    background: rgba(102, 126, 234, 0.15);
+    color: var(--gradient-start);
+    padding: 0.2rem 0.6rem;
     border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    border: 1px solid rgba(102, 126, 234, 0.3);
 }
 
 .system-status {
     display: flex;
     align-items: center;
-    gap: 1rem;
-    font-family: var(--font-data);
+    gap: 0.75rem;
 }
 
 .status-indicator {
-    padding: 0.25rem 0.75rem;
-    border-radius: 2px;
-    font-size: 0.85rem;
+    padding: 0.3rem 0.75rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
 }
 
 .status-indicator.online {
     background: rgba(16, 185, 129, 0.1);
-    color: var(--status-green);
-    border: 1px solid var(--status-green);
+    color: var(--success);
+    border: 1px solid rgba(16, 185, 129, 0.2);
 }
 
 .status-indicator.warning {
     background: rgba(245, 158, 11, 0.1);
-    color: var(--status-yellow);
-    border: 1px solid var(--status-yellow);
+    color: var(--warning);
+    border: 1px solid rgba(245, 158, 11, 0.2);
 }
 
 .time-display {
-    font-size: 1.25rem;
-    color: var(--brand-blue);
-    margin-left: 1rem;
+    font-size: 1rem;
+    color: var(--gradient-start);
+    font-weight: 600;
+    margin-left: 0.5rem;
+    font-variant-numeric: tabular-nums;
 }
 
-/* Main Layout */
+/* Main Layout - ERP style content */
 .scada-main {
     flex: 1;
-    padding: 2rem;
+    padding: 1.5rem;
     display: grid;
     grid-template-columns: 2fr 1fr;
     grid-template-rows: auto auto;
-    gap: 2rem;
+    gap: 1.5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Card style - ERP glass-card */
+.hub-overview,
+.graph-panel,
+.module-panel {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow 0.2s;
+}
+
+.hub-overview:hover,
+.graph-panel:hover {
+    box-shadow: var(--shadow-md);
 }
 
 .hub-overview {
     grid-column: 1 / 2;
-    background: var(--bg-panel);
-    border: var(--panel-border);
-    border-radius: 8px;
-    padding: 1.5rem;
 }
 
 .modular-architecture {
@@ -134,15 +160,11 @@ h2, h3 {
     grid-row: 1 / 3;
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1rem;
 }
 
 .graph-panel {
     grid-column: 1 / 2;
-    background: var(--bg-panel);
-    border: var(--panel-border);
-    border-radius: 8px;
-    padding: 1.5rem;
     min-height: 250px;
 }
 
@@ -150,41 +172,52 @@ h2, h3 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 1.5rem;
-    border-bottom: var(--panel-border-hl);
-    padding-bottom: 0.5rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.panel-header h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .btn-scada {
-    background: transparent;
-    color: var(--brand-blue);
-    border: 1px solid var(--brand-blue);
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    color: white;
+    border: none;
     padding: 0.5rem 1rem;
-    font-family: var(--font-data);
-    font-size: 0.85rem;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 500;
     text-decoration: none;
     transition: all 0.2s;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
 }
 
 .btn-scada:hover {
-    background: rgba(14, 165, 233, 0.2);
-    box-shadow: 0 0 10px var(--brand-blue-glow);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
 }
 
-/* Overview Content */
+/* Overview Content - ERP style */
 .overview-content {
     position: relative;
-    border-radius: 4px;
+    border-radius: 8px;
     overflow: hidden;
-    border: 1px solid #374151;
+    border: 1px solid var(--border-color);
 }
 
 .hub-image {
     width: 100%;
-    height: 400px;
+    height: 350px;
     object-fit: cover;
     display: block;
-    filter: brightness(0.8) contrast(1.1);
 }
 
 .kpi-overlay {
@@ -192,12 +225,12 @@ h2, h3 {
     bottom: 0;
     left: 0;
     width: 100%;
-    background: rgba(3, 7, 18, 0.85);
-    backdrop-filter: blur(5px);
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(8px);
     display: flex;
     justify-content: space-around;
     padding: 1rem;
-    border-top: 1px solid var(--brand-blue);
+    border-top: 1px solid rgba(102, 126, 234, 0.3);
 }
 
 .kpi-box {
@@ -206,122 +239,133 @@ h2, h3 {
 
 .kpi-label {
     display: block;
-    font-size: 0.75rem;
-    color: var(--brand-blue);
-    letter-spacing: 0.1em;
+    font-size: 0.7rem;
+    color: var(--gradient-start);
+    font-weight: 600;
+    letter-spacing: 0.05em;
     margin-bottom: 0.25rem;
+    text-transform: uppercase;
 }
 
 .kpi-value {
-    font-family: var(--font-data);
-    font-size: 2rem;
-    color: var(--text-light);
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: white;
 }
 
 .kpi-unit {
-    font-family: var(--font-data);
-    font-size: 1rem;
-    color: #6b7280;
+    font-size: 0.85rem;
+    color: var(--text-light);
+    font-weight: 400;
 }
 
-/* Modules */
+/* Module Cards - ERP style */
 .module-panel {
-    background: var(--bg-panel);
-    border: var(--panel-border);
-    border-radius: 8px;
-    padding: 1rem;
-    border-left: 4px solid #374151;
+    border-left: 4px solid transparent;
+    transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
 }
 
-.module-panel.mod-a { border-left-color: #3b82f6; }
-.module-panel.mod-b { border-left-color: #10b981; }
+.module-panel:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.module-panel.mod-a { border-left-color: var(--gradient-start); }
+.module-panel.mod-b { border-left-color: var(--success); }
 .module-panel.mod-c { border-left-color: #0ea5e9; }
-.module-panel.mod-d { border-left-color: #f59e0b; }
+.module-panel.mod-d { border-left-color: var(--warning); }
 
 .mod-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
 }
 
 .mod-header h3 {
-    font-size: 1rem;
-    font-family: var(--font-data);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-main);
 }
 
 .led {
-    width: 12px;
-    height: 12px;
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
+    display: inline-block;
 }
 
 .led.green {
-    background: var(--status-green);
-    box-shadow: 0 0 8px var(--status-green);
+    background: var(--success);
+    box-shadow: 0 0 6px var(--success);
 }
 
 .led.blinking {
-    animation: blink 2s infinite;
+    animation: blink 1.5s infinite;
 }
 
 @keyframes blink {
     0%, 100% { opacity: 1; }
-    50% { opacity: 0.4; }
+    50% { opacity: 0.3; }
 }
 
 .mod-body {
-    font-family: var(--font-data);
-    font-size: 0.9rem;
+    font-size: 0.85rem;
 }
 
 .data-row {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 0.5rem;
-    color: #9ca3af;
+    margin-bottom: 0.4rem;
+    color: var(--text-muted);
+}
+
+.data-row span:first-child {
+    font-weight: 500;
 }
 
 .data-val {
-    color: var(--text-light);
+    color: var(--text-main);
+    font-weight: 600;
 }
 
-.data-val.active { color: var(--status-green); }
-.data-val.good { color: var(--brand-blue); }
+.data-val.active { color: var(--success); }
+.data-val.good { color: #0ea5e9; }
 
 .progress-bar {
     height: 4px;
-    background: #1f2937;
-    margin-top: 1rem;
+    background: #e2e8f0;
+    margin-top: 0.75rem;
     border-radius: 2px;
     overflow: hidden;
 }
 
 .progress-bar .fill {
     height: 100%;
-    background: var(--brand-blue);
+    background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
     transition: width 0.5s ease;
 }
 
 .progress-bar .fill.warning {
-    background: var(--status-yellow);
+    background: linear-gradient(90deg, var(--warning), #d97706);
 }
 
-/* Live Graph Placeholder */
+/* Live Graph */
 .graph-placeholder {
     height: 200px;
     position: relative;
-    background: #1f2937;
-    border-radius: 4px;
+    background: var(--bg-input);
+    border-radius: 8px;
     overflow: hidden;
+    border: 1px solid var(--border-color);
 }
 
 .graph-grid {
     width: 100%;
     height: 100%;
     background-image: 
-        linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+        linear-gradient(rgba(79, 70, 229, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(79, 70, 229, 0.05) 1px, transparent 1px);
     background-size: 20px 20px;
 }
 
@@ -332,16 +376,16 @@ h2, h3 {
     width: 100%;
     height: 50%;
     border-top: 2px solid;
-    opacity: 0.8;
+    opacity: 0.7;
 }
 
 .graph-line.production {
-    border-color: var(--brand-blue);
+    border-color: var(--gradient-start);
     transform: translateY(-20px);
 }
 
 .graph-line.energy {
-    border-color: var(--status-yellow);
+    border-color: var(--warning);
     transform: translateY(-60px);
     border-top-style: dashed;
 }
@@ -350,35 +394,40 @@ h2, h3 {
     position: absolute;
     top: 10px;
     right: 10px;
-    font-family: var(--font-data);
     font-size: 0.75rem;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
-    background: rgba(0,0,0,0.5);
-    padding: 0.5rem;
-    border: 1px solid #374151;
+    gap: 0.4rem;
+    background: var(--bg-card);
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
 }
 
-.legend-item.prod { color: var(--brand-blue); }
-.legend-item.ener { color: var(--status-yellow); }
+.legend-item {
+    font-weight: 600;
+}
+
+.legend-item.prod { color: var(--gradient-start); }
+.legend-item.ener { color: var(--warning); }
 
 /* Footer */
 .scada-footer {
-    background-color: var(--bg-darker);
-    border-top: var(--panel-border);
+    background: var(--bg-card);
+    border-top: 1px solid var(--border-color);
     padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
-    font-family: var(--font-data);
     font-size: 0.75rem;
-    color: #4b5563;
+    color: var(--text-muted);
 }
 
 /* Responsive */
 @media (max-width: 1024px) {
     .scada-main {
         grid-template-columns: 1fr;
+        padding: 1rem;
     }
     
     .modular-architecture {
@@ -390,7 +439,19 @@ h2, h3 {
 }
 
 @media (max-width: 768px) {
+    .scada-header {
+        padding: 0 1rem;
+    }
+    .badge-industrial {
+        display: none;
+    }
     .modular-architecture {
         grid-template-columns: 1fr;
+    }
+    .hub-image {
+        height: 250px;
+    }
+    .kpi-value {
+        font-size: 1.25rem;
     }
 }
