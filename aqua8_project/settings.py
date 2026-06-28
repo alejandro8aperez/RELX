@@ -75,17 +75,24 @@ WSGI_APPLICATION = 'aqua8_project.wsgi.application'
 # Database
 DATABASE_URL = os.environ.get('DATABASE_URL', '').strip()
 
-if DATABASE_URL and '@' in DATABASE_URL:
-    _host = DATABASE_URL.split('@')[-1].split('/')[0]
-    print(f"[DB] Connecting to {_host}", file=sys.stderr, flush=True)
-
-DATABASES = {
-    'default': dj_database_url.config(
-        default='sqlite:///db.sqlite3',
-        conn_max_age=600,
-        conn_health_checks=True,
-    )
-}
+if DATABASE_URL and DATABASE_URL.startswith('postgres'):
+    if '@' in DATABASE_URL:
+        _host = DATABASE_URL.split('@')[-1].split('/')[0]
+        print(f"[DB] Connecting to {_host}", file=sys.stderr, flush=True)
+    DATABASES = {
+        'default': dj_database_url.parse(
+            DATABASE_URL,
+            conn_max_age=600,
+            conn_health_checks=True,
+        )
+    }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
