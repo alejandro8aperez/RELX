@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import api from '../api/axios'
-import { Calculator, Plus, Search, Download, Eye, FileSpreadsheet, FileText, CheckCircle, Clock, AlertTriangle, BarChart3, TrendingUp } from 'lucide-react'
+import { Calculator, Plus, Search, Download, Eye, FileText, CheckCircle, Clock, AlertTriangle, BarChart3, TrendingUp } from 'lucide-react'
 
 export default function MemoriaCalculo() {
   const [memorias, setMemorias] = useState([])
