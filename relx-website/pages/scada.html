@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard SCADA | AQUA-8 Platform</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💧</text></svg>">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-inner">
+            <a href="../index.html" class="logo">
+                <div class="logo-icon">A8</div>
+                <div class="logo-text">AQUA<span>-8</span></div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="convocatoria.html">Convocatoria RELX</a></li>
+                <li><a href="manaure.html">Manaure</a></li>
+                <li><a href="contenedor.html">Contenedor</a></li>
+                <li><a href="captacion.html">Captación</a></li>
+                <li><a href="pretratamiento.html">Pre-tratamiento</a></li>
+                <li><a href="osmosis.html">Ósmosis Inversa</a></li>
+                <li><a href="postratamiento.html">Post-tratamiento</a></li>
+                <li><a href="almacenamiento.html">Almacenamiento</a></li>
+                <li><a href="energia.html">Energía Solar</a></li>
+                <li><a href="control.html">Control SCADA</a></li>
+                <li><a href="presupuesto.html">Presupuesto</a></li>
+                <li><a href="scada.html" class="active">Dashboard</a></li>
+            </ul>
+            <button class="mobile-toggle">☰</button>
+        </div>
+    </nav>
+
+    <div class="page-header control">
+        <h1>Dashboard SCADA en Vivo</h1>
+        <p>Monitoreo en tiempo real de la planta desalinizadora Manaure — telemetría, alarmas y estado de módulos.</p>
+        <div class="scada-header-meta">
+            <div class="connection-badge" id="connection-status">
+                <span class="dot"></span>
+                <span>Conectando...</span>
+            </div>
+            <span class="location" id="location-name" style="color: rgba(255,255,255,0.8); font-size: 14px;">Manaure, La Guajira</span>
+            <span class="uptime" id="uptime" style="color: rgba(255,255,255,0.6); font-size: 13px;">--</span>
+            <span id="last-update" style="color: rgba(255,255,255,0.6); font-size: 13px;">--</span>
+        </div>
+    </div>
+
+    <section class="section">
+        <div class="kpi-grid">
+            <div class="card fade-in visible">
+                <div class="card-icon">💧</div>
+                <h3>Producción Total</h3>
+                <p style="font-size: 2rem; font-weight: 800; color: var(--aqua-dark);" id="production-total">--</p>
+                <p style="color: var(--text-light); font-size: 0.85rem;">litros acumulados</p>
+            </div>
+            <div class="card fade-in visible">
+                <div class="card-icon">⚡</div>
+                <h3>Consumo Energético</h3>
+                <p style="font-size: 2rem; font-weight: 800; color: var(--aqua-dark);" id="kpi-consumption">--</p>
+                <p style="color: var(--text-light); font-size: 0.85rem;">kWh/m³</p>
+            </div>
+            <div class="card fade-in visible">
+                <div class="card-icon">✅</div>
+                <h3>Calidad del Agua</h3>
+                <p style="font-size: 2rem; font-weight: 800; color: var(--aqua-dark);" id="kpi-quality">--</p>
+                <p style="color: var(--text-light); font-size: 0.85rem;">TDS ppm</p>
+            </div>
+            <div class="card fade-in visible">
+                <div class="card-icon">📈</div>
+                <h3>Eficiencia RO</h3>
+                <p style="font-size: 2rem; font-weight: 800; color: var(--aqua-dark);" id="kpi-rejection">--</p>
+                <p style="color: var(--text-light); font-size: 0.85rem;">% rechazo sales</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="padding-top: 0;">
+        <div class="section-header fade-in visible">
+            <span class="section-tag">Monitoreo en Tiempo Real</span>
+            <h2>Módulos del Sistema</h2>
+            <p class="section-desc">Datos actualizados cada 3 segundos desde los sensores de la planta.</p>
+        </div>
+        <div class="scada-modules-grid">
+            <div class="card fade-in visible scada-module" id="card-A">
+                <div class="scada-module-header">
+                    <div class="scada-badge" style="background: var(--aqua-primary);">A</div>
+                    <div>
+                        <h3 style="margin: 0;">Captación y Pretratamiento</h3>
+                        <span class="module-status" id="mod-a-status" style="font-size: 13px; color: var(--text-light);">--</span>
+                    </div>
+                    <div class="status-indicator" id="mod-a-indicator" style="margin-left: auto; width: 12px; height: 12px;"></div>
+                </div>
+                <div class="scada-metrics">
+                    <div class="spec-card"><span class="spec-label">Temperatura</span><span class="spec-value" id="mod-a-temp">--</span></div>
+                    <div class="spec-card"><span class="spec-label">Presión</span><span class="spec-value" id="mod-a-pressure">--</span></div>
+                    <div class="spec-card"><span class="spec-label">Flujo</span><span class="spec-value" id="mod-a-flow">--</span></div>
+                </div>
+            </div>
+
+            <div class="card fade-in visible scada-module" id="card-B">
+                <div class="scada-module-header">
+                    <div class="scada-badge" style="background: #8B5CF6;">B</div>
+                    <div>
+                        <h3 style="margin: 0;">Ósmosis Inversa (RO)</h3>
+                        <span class="module-status" id="mod-b-status" style="font-size: 13px; color: var(--text-light);">--</span>
+                    </div>
+                    <div class="status-indicator" id="mod-b-indicator" style="margin-left: auto; width: 12px; height: 12px;"></div>
+                </div>
+                <div class="scada-metrics">
+                    <div class="spec-card"><span class="spec-label">Temperatura</span><span class="spec-value" id="mod-b-temp">--</span></div>
+                    <div class="spec-card"><span class="spec-label">Presión</span><span class="spec-value" id="mod-b-pressure">--</span></div>
+                    <div class="spec-card"><span class="spec-label">Flujo</span><span class="spec-value" id="mod-b-flow">--</span></div>
+                    <div class="spec-card"><span class="spec-label">TDS Entrada</span><span class="spec-value" id="mod-b-tds-in">--</span></div>
+                    <div class="spec-card"><span class="spec-label">TDS Salida</span><span class="spec-value" id="mod-b-tds-out">--</span></div>
+                    <div class="spec-card" style="border-left-color: var(--aqua-accent);"><span class="spec-label">Rechazo</span><span class="spec-value" id="mod-b-rejection" style="color: var(--aqua-accent);">--</span></div>
+                </div>
+            </div>
+
+            <div class="card fade-in visible scada-module" id="card-C">
+                <div class="scada-module-header">
+                    <div class="scada-badge" style="background: var(--aqua-accent);">C</div>
+                    <div>
+                        <h3 style="margin: 0;">Postratamiento y Almacenamiento</h3>
+                        <span class="module-status" id="mod-c-status" style="font-size: 13px; color: var(--text-light);">--</span>
+                    </div>
+                    <div class="status-indicator" id="mod-c-indicator" style="margin-left: auto; width: 12px; height: 12px;"></div>
+                </div>
+                <div class="scada-metrics">
+                    <div class="spec-card"><span class="spec-label">Temperatura</span><span class="spec-value" id="mod-c-temp">--</span></div>
+                    <div class="spec-card"><span class="spec-label">Presión</span><span class="spec-value" id="mod-c-pressure">--</span></div>
+                    <div class="spec-card"><span class="spec-label">Flujo</span><span class="spec-value" id="mod-c-flow">--</span></div>
+                </div>
+                <div class="progress-bar-container" style="margin-top: 20px;">
+                    <div class="progress-bar-label">
+                        <span>Nivel del Tanque</span>
+                        <span id="mod-c-tank">--</span>
+                    </div>
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill" id="mod-c-tank-bar" style="width: 0%; background: var(--aqua-gradient);"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card fade-in visible scada-module" id="card-D">
+                <div class="scada-module-header">
+                    <div class="scada-badge" style="background: #F59E0B;">D</div>
+                    <div>
+                        <h3 style="margin: 0;">Energía Solar y SCADA</h3>
+                        <span class="module-status" id="mod-d-status" style="font-size: 13px; color: var(--text-light);">--</span>
+                    </div>
+                    <div class="status-indicator" id="mod-d-indicator" style="margin-left: auto; width: 12px; height: 12px;"></div>
+                </div>
+                <div class="scada-metrics">
+                    <div class="spec-card"><span class="spec-label">Producción Solar</span><span class="spec-value" id="mod-d-solar">--</span></div>
+                    <div class="spec-card"><span class="spec-label">Consumo</span><span class="spec-value" id="mod-d-consumption">--</span></div>
+                    <div class="spec-card"><span class="spec-label">SCADA</span><span class="spec-value" id="mod-d-scada">--</span></div>
+                </div>
+                <div class="progress-bar-container" style="margin-top: 20px;">
+                    <div class="progress-bar-label">
+                        <span>Batería</span>
+                        <span id="mod-d-battery">--</span>
+                    </div>
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill" id="mod-d-battery-bar" style="width: 0%; background: linear-gradient(90deg, var(--aqua-accent), #34D399);"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="padding-top: 0;">
+        <div class="section-header fade-in visible">
+            <span class="section-tag">Eventos</span>
+            <h2>Alarmas y Notificaciones</h2>
+        </div>
+        <div class="alarms-panel" id="alarms-list" style="background: white; border-radius: var(--radius); box-shadow: var(--shadow); border: 1px solid rgba(0,102,204,0.08); padding: 24px; max-height: 350px; overflow-y: auto;">
+            <div class="alarm-empty" style="text-align: center; color: var(--text-muted); padding: 20px;">Cargando alarmas...</div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <div class="logo-text" style="font-size: 24px;">AQUA<span style="color: #00A3E0;">-8</span></div>
+                <p>Plataforma tecnológica modular para la autonomía hídrica de comunidades aisladas.</p>
+            </div>
+            <div>
+                <h4>Plataforma</h4>
+                <ul class="footer-links">
+                    <li><a href="convocatoria.html">Convocatoria RELX</a></li>
+                    <li><a href="manaure.html">Piloto Manaure</a></li>
+                    <li><a href="contenedor.html">Contenedor</a></li>
+                    <li><a href="presupuesto.html">Presupuesto</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Sistema</h4>
+                <ul class="footer-links">
+                    <li><a href="captacion.html">Captación</a></li>
+                    <li><a href="pretratamiento.html">Pre-tratamiento</a></li>
+                    <li><a href="osmosis.html">Ósmosis Inversa</a></li>
+                    <li><a href="postratamiento.html">Post-tratamiento</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contacto</h4>
+                <ul class="footer-links">
+                    <li><a href="https://github.com/alejandro8ap/RELX" target="_blank">GitHub</a></li>
+                    <li><a href="#">Manaure, La Guajira</a></li>
+                    <li><a href="#">Colombia</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 AQUA-8 Platform | Código: AQ8-2026 | Open Engineering</p>
+        </div>
+    </footer>
+    <script src="../js/scada.js"></script>
+</body>
+</html>
