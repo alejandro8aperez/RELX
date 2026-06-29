@@ -14,6 +14,7 @@ app.mount("/assets", StaticFiles(directory="relx-website/assets"), name="assets"
 app.mount("/css", StaticFiles(directory="relx-website/css"), name="css")
 app.mount("/js", StaticFiles(directory="relx-website/js"), name="js")
 app.mount("/docs-site", StaticFiles(directory="relx-website/docs"), name="docs-site")
+app.mount("/pages", StaticFiles(directory="relx-website/pages"), name="pages")
 
 # ==================== DATOS SIMULADOS ====================
 
