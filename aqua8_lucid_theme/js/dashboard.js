@@ -8,14 +8,14 @@ let demoMode = false;
 
 // Datos de fallback para modo offline
 const fallbackModules = {
-    A: { name: "Captacion y Pretratamiento", status: "online", temp: 28.5, pressure: 2.1, flow: 450 },
-    B: { name: "Osmosis Inversa (RO)", status: "online", temp: 26.0, pressure: 55.0, flow: 420, tds_in: 35000, tds_out: 450 },
+    A: { name: "Captación y Pretratamiento", status: "online", temp: 28.5, pressure: 2.1, flow: 450 },
+    B: { name: "Ósmosis Inversa (RO)", status: "online", temp: 26.0, pressure: 55.0, flow: 420, tds_in: 35000, tds_out: 450 },
     C: { name: "Postratamiento y Almacenamiento", status: "online", temp: 25.0, pressure: 1.5, flow: 415, tank_level: 78 },
-    D: { name: "Energia Solar y SCADA", status: "online", solar_prod: 18.5, battery: 92, consumption: 12.3, scada_status: "active" }
+    D: { name: "Energía Solar y SCADA", status: "online", solar_prod: 18.5, battery: 92, consumption: 12.3, scada_status: "active" }
 };
 
 // ============================================================
-// FETCH DE TELEMETRIA EN VIVO
+// FETCH DE TELEMETRÍA EN VIVO
 // ============================================================
 
 async function fetchTelemetry() {
@@ -28,7 +28,7 @@ async function fetchTelemetry() {
         demoMode = false;
         updateConnectionStatus(true);
     } catch (e) {
-        console.warn('API no disponible, usando simulacion local:', e.message);
+        console.warn('API no disponible, usando simulación local:', e.message);
         isConnected = false;
         if (!demoMode) {
             demoMode = true;
@@ -69,16 +69,16 @@ function updateDashboard(data) {
 
     const modules = data.modules;
 
-    // Modulo A — Captacion
+    // Módulo A — Captación
     if (modules.A) updateModuleA(modules.A);
 
-    // Modulo B — RO
+    // Módulo B — RO
     if (modules.B) updateModuleB(modules.B);
 
-    // Modulo C — Postratamiento
+    // Módulo C — Postratamiento
     if (modules.C) updateModuleC(modules.C);
 
-    // Modulo D — Energia
+    // Módulo D — Energía
     if (modules.D) updateModuleD(modules.D);
 
     // KPIs globales
@@ -116,7 +116,7 @@ function updateDashboard(data) {
 function updateModuleA(data) {
     updateElement('mod-a-status', data.status);
     updateStatusIndicator('mod-a-indicator', data.status);
-    updateElement('mod-a-temp', data.temp + ' C');
+    updateElement('mod-a-temp', data.temp + ' °C');
     updateElement('mod-a-pressure', data.pressure + ' bar');
     updateElement('mod-a-flow', data.flow + ' L/h');
 }
@@ -124,7 +124,7 @@ function updateModuleA(data) {
 function updateModuleB(data) {
     updateElement('mod-b-status', data.status);
     updateStatusIndicator('mod-b-indicator', data.status);
-    updateElement('mod-b-temp', data.temp + ' C');
+    updateElement('mod-b-temp', data.temp + ' °C');
     updateElement('mod-b-pressure', data.pressure + ' bar');
     updateElement('mod-b-flow', data.flow + ' L/h');
     updateElement('mod-b-tds-in', formatNumber(data.tds_in) + ' ppm');
@@ -135,7 +135,7 @@ function updateModuleB(data) {
 function updateModuleC(data) {
     updateElement('mod-c-status', data.status);
     updateStatusIndicator('mod-c-indicator', data.status);
-    updateElement('mod-c-temp', data.temp + ' C');
+    updateElement('mod-c-temp', data.temp + ' °C');
     updateElement('mod-c-pressure', data.pressure + ' bar');
     updateElement('mod-c-flow', data.flow + ' L/h');
     updateElement('mod-c-tank', Math.round(data.tank_level) + '%');
@@ -239,7 +239,7 @@ function renderAlarms(alarms) {
 }
 
 // ============================================================
-// GRAFICOS (placeholder)
+// GRÁFICOS (placeholder)
 // ============================================================
 
 function renderCharts(data) {
@@ -248,14 +248,14 @@ function renderCharts(data) {
 }
 
 // ============================================================
-// SIMULACION LOCAL (modo offline/demo)
+// SIMULACIÓN LOCAL (modo offline/demo)
 // ============================================================
 
 let localSimInterval = null;
 
 function startLocalSimulation() {
     if (localSimInterval) return;
-    console.log('Modo demo activado');
+    console.log('🎮 Modo demo activado');
 
     localSimInterval = setInterval(() => {
         for (let key in fallbackModules) {
@@ -301,11 +301,11 @@ function stopLocalSimulation() {
 }
 
 // ============================================================
-// INICIALIZACION
+// INICIALIZACIÓN
 // ============================================================
 
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('AQUA-8 Lucid Dashboard iniciado');
+    console.log('🌊 AQUA-8 Lucid Dashboard iniciado');
 
     fetchTelemetry();
     fetchAlarms();

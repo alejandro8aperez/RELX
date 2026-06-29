@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+    <!-- Header -->
     <header class="header">
         <div class="header-left">
             <div class="logo">
@@ -38,7 +39,9 @@
         </div>
     </header>
 
+    <!-- Main Content -->
     <main class="main">
+        <!-- KPI Cards -->
         <section class="kpi-grid">
             <div class="kpi-card">
                 <div class="kpi-icon water">
@@ -47,7 +50,7 @@
                     </svg>
                 </div>
                 <div class="kpi-data">
-                    <span class="kpi-label">Produccion Total</span>
+                    <span class="kpi-label">Producción Total</span>
                     <span class="kpi-value" id="production-total">--</span>
                     <span class="kpi-unit">litros</span>
                 </div>
@@ -59,9 +62,9 @@
                     </svg>
                 </div>
                 <div class="kpi-data">
-                    <span class="kpi-label">Consumo Energetico</span>
+                    <span class="kpi-label">Consumo Energético</span>
                     <span class="kpi-value" id="kpi-consumption">--</span>
-                    <span class="kpi-unit">kWh/m3</span>
+                    <span class="kpi-unit">kWh/m³</span>
                 </div>
             </div>
             <div class="kpi-card">
@@ -91,14 +94,16 @@
             </div>
         </section>
 
+        <!-- Modules Grid -->
         <section class="modules-section">
-            <h2 class="section-title">Modulos del Sistema</h2>
+            <h2 class="section-title">Módulos del Sistema</h2>
             <div class="modules-grid">
+                <!-- Módulo A -->
                 <div class="module-card" id="card-A">
                     <div class="module-header">
                         <div class="module-badge">A</div>
                         <div class="module-title">
-                            <h3>Captacion y Pretratamiento</h3>
+                            <h3>Captación y Pretratamiento</h3>
                             <span class="module-status" id="mod-a-status">--</span>
                         </div>
                         <div class="status-indicator" id="mod-a-indicator"></div>
@@ -109,7 +114,7 @@
                             <span class="metric-value" id="mod-a-temp">--</span>
                         </div>
                         <div class="metric">
-                            <span class="metric-label">Presion</span>
+                            <span class="metric-label">Presión</span>
                             <span class="metric-value" id="mod-a-pressure">--</span>
                         </div>
                         <div class="metric">
@@ -119,11 +124,12 @@
                     </div>
                 </div>
 
+                <!-- Módulo B -->
                 <div class="module-card" id="card-B">
                     <div class="module-header">
                         <div class="module-badge accent">B</div>
                         <div class="module-title">
-                            <h3>Osmosis Inversa (RO)</h3>
+                            <h3>Ósmosis Inversa (RO)</h3>
                             <span class="module-status" id="mod-b-status">--</span>
                         </div>
                         <div class="status-indicator" id="mod-b-indicator"></div>
@@ -134,7 +140,7 @@
                             <span class="metric-value" id="mod-b-temp">--</span>
                         </div>
                         <div class="metric">
-                            <span class="metric-label">Presion</span>
+                            <span class="metric-label">Presión</span>
                             <span class="metric-value" id="mod-b-pressure">--</span>
                         </div>
                         <div class="metric">
@@ -156,6 +162,7 @@
                     </div>
                 </div>
 
+                <!-- Módulo C -->
                 <div class="module-card" id="card-C">
                     <div class="module-header">
                         <div class="module-badge success">C</div>
@@ -171,7 +178,7 @@
                             <span class="metric-value" id="mod-c-temp">--</span>
                         </div>
                         <div class="metric">
-                            <span class="metric-label">Presion</span>
+                            <span class="metric-label">Presión</span>
                             <span class="metric-value" id="mod-c-pressure">--</span>
                         </div>
                         <div class="metric">
@@ -190,18 +197,19 @@
                     </div>
                 </div>
 
+                <!-- Módulo D -->
                 <div class="module-card" id="card-D">
                     <div class="module-header">
                         <div class="module-badge warning">D</div>
                         <div class="module-title">
-                            <h3>Energia Solar y SCADA</h3>
+                            <h3>Energía Solar y SCADA</h3>
                             <span class="module-status" id="mod-d-status">--</span>
                         </div>
                         <div class="status-indicator" id="mod-d-indicator"></div>
                     </div>
                     <div class="module-metrics">
                         <div class="metric">
-                            <span class="metric-label">Produccion Solar</span>
+                            <span class="metric-label">Producción Solar</span>
                             <span class="metric-value" id="mod-d-solar">--</span>
                         </div>
                         <div class="metric">
@@ -215,7 +223,7 @@
                     </div>
                     <div class="progress-bar-container">
                         <div class="progress-label">
-                            <span>Bateria</span>
+                            <span>Batería</span>
                             <span id="mod-d-battery">--</span>
                         </div>
                         <div class="progress-bar-bg">
@@ -226,6 +234,7 @@
             </div>
         </section>
 
+        <!-- Alarms Section -->
         <section class="alarms-section">
             <h2 class="section-title">Alarmas y Eventos</h2>
             <div class="alarms-panel" id="alarms-list">
@@ -233,6 +242,7 @@
             </div>
         </section>
 
+        <!-- Footer -->
         <footer class="footer">
             <span>AQUA-8 Platform v1.0.0</span>
             <span>Piloto: Manaure, La Guajira, Colombia</span>
