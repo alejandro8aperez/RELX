@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pre-tratamiento — UF y Filtros | AQUA-8</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💧</text></svg>">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-inner">
+            <a href="../index.html" class="logo">
+                <div class="logo-icon">A8</div>
+                <div class="logo-text">AQUA<span>-8</span></div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="convocatoria.html">Convocatoria RELX</a></li>
+                <li><a href="manaure.html">Manaure</a></li>
+                <li><a href="contenedor.html">Contenedor</a></li>
+                <li><a href="captacion.html">Captación</a></li>
+                <li><a href="pretratamiento.html" class="active">Pre-tratamiento</a></li>
+                <li><a href="osmosis.html">Ósmosis Inversa</a></li>
+                <li><a href="postratamiento.html">Post-tratamiento</a></li>
+                <li><a href="almacenamiento.html">Almacenamiento</a></li>
+                <li><a href="energia.html">Energía Solar</a></li>
+                <li><a href="control.html">Control SCADA</a></li>
+                <li><a href="presupuesto.html">Presupuesto</a></li>
+            </ul>
+            <button class="mobile-toggle">☰</button>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero pretratamiento">
+            <div class="hero-particles"></div>
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="dot"></span>
+                    Pre-tratamiento
+                </div>
+                <h1>Pre-tratamiento<br><span class="highlight">Filtración y UF</span></h1>
+                <p class="hero-subtitle">Sistema de filtración progresiva que combina filtros de cartucho de 5 a 50 µm con membranas de ultrafiltración (UF) y dosificación de antiescalante para proteger las membranas de ósmosis inversa.</p>
+                <div class="hero-cta">
+                    <a href="#etapas" class="btn btn-primary">Etapas del Proceso →</a>
+                    <a href="#flujo" class="btn btn-outline">Diagrama de Flujo</a>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <span>↓ Pre-tratamiento del agua de mar</span>
+            </div>
+        </section>
+
+        <section class="section" id="etapas">
+            <div class="section-header fade-in">
+                <span class="section-tag">Pre-tratamiento</span>
+                <h2>Etapas del Pre-tratamiento</h2>
+                <p class="section-desc">El pre-tratamiento es crítico para garantizar la vida útil de las membranas SWRO. Consta de tres etapas secuenciales.</p>
+            </div>
+            <div class="card-grid">
+                <div class="card fade-in">
+                    <div class="card-icon">🔍</div>
+                    <h3>1. Filtros de Cartucho (5–50 µm)</h3>
+                    <p>Filtros de cartucho en polipropileno de grado decreciente: 50 µm → 20 µm → 5 µm. Remueven partículas suspendidas, arena, sedimentos y microorganismos grandes. Protegen las membranas UF de daños por abrasión.</p>
+                </div>
+                <div class="card fade-in">
+                    <div class="card-icon">🧪</div>
+                    <h3>2. Ultrafiltración (UF)</h3>
+                    <p>Membranas de fibra hueca con poro de 0.01–0.05 µm. Remueven coloides, bacterias, virus y partículas submicrónicas. Operan en modo dead-end o cross-flow con retro-lavado automático cada 30–60 minutos.</p>
+                </div>
+                <div class="card fade-in">
+                    <div class="card-icon">💉</div>
+                    <h3>3. Dosificación de Antiescalante</h3>
+                    <p>Inyección de antiescalante específico para agua de mar (tipo fosfonato o poliacrilato) a dosis de 2–5 mg/L. Previene la precipitación de sales de CaCO₃, CaSO₄, BaSO₄ y SrSO₄ en las membranas RO.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="flujo" style="background: var(--bg-alt);">
+            <div class="section-header fade-in">
+                <span class="section-tag">Flujo</span>
+                <h2>Diagrama de Flujo del Pre-tratamiento</h2>
+                <p class="section-desc">Secuencia del proceso desde la captación hasta la alimentación de las membranas SWRO.</p>
+            </div>
+            <div class="feature-row fade-in">
+                <div class="feature-content slide-in-left">
+                    <h3>🔀 Descripción del Flujo</h3>
+                    <p>El agua de mar proveniente de la captación ingresa al contenedor y pasa por la siguiente secuencia:</p>
+                    <ul class="feature-list">
+                        <li><strong>Etapa 1:</strong> Filtro de cartucho de 50 µm — remoción gruesa</li>
+                        <li><strong>Etapa 2:</strong> Filtro de cartucho de 20 µm — remoción media</li>
+                        <li><strong>Etapa 3:</strong> Filtro de cartucho de 5 µm — remoción fina</li>
+                        <li><strong>Etapa 4:</strong> Membrana de Ultrafiltración (0.02 µm)</li>
+                        <li><strong>Etapa 5:</strong> Dosificación de antiescalante + mezcla estática</li>
+                        <li><strong>Salida:</strong> Agua pre-tratada lista para SWRO (SDI &lt; 3, TSS &lt; 1 mg/L)</li>
+                    </ul>
+                </div>
+                <div class="image-placeholder slide-in-right">
+                    <span class="icon">📐</span>
+                    <span>PFD — Pre-tratamiento UF</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section fade-in">
+            <div class="section-header">
+                <span class="section-tag">Especificaciones</span>
+                <h2>Parámetros de Operación</h2>
+                <p class="section-desc">Condiciones de diseño y operación del sistema de pre-tratamiento.</p>
+            </div>
+            <div class="specs-grid fade-in">
+                <div class="spec-item">
+                    <span class="spec-label">Filtración Cartucho</span>
+                    <span class="spec-value">50 → 20 → 5 µm</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-label">Membrana UF</span>
+                    <span class="spec-value">Fibra hueca 0.02 µm</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-label">Flujo UF</span>
+                    <span class="spec-value">50–80 LMH</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-label">Presión UF</span>
+                    <span class="spec-value">1–2 bar</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-label">Antiescalante</span>
+                    <span class="spec-value">2–5 mg/L</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-label">SDI Salida</span>
+                    <span class="spec-value">&lt; 3</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-label">Retrolavado UF</span>
+                    <span class="spec-value">C/30–60 min</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-label">TSS Salida</span>
+                    <span class="spec-value">&lt; 1 mg/L</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="background: var(--aqua-gradient); text-align: center; padding: 80px 2rem;">
+            <div style="max-width: 700px; margin: 0 auto;">
+                <h2 style="color: white; font-size: 2.5rem; font-weight: 800; margin-bottom: 16px;">Ósmosis Inversa</h2>
+                <p style="color: rgba(255,255,255,0.9); font-size: 1.2rem; margin-bottom: 32px;">El agua pre-tratada ingresa al corazón del sistema: las membranas de ósmosis inversa SWRO.</p>
+                <a href="osmosis.html" class="btn btn-primary" style="font-size: 18px; padding: 18px 40px;">Ir a SWRO →</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <div class="logo-text" style="font-size: 24px;">AQUA<span style="color: #00A3E0;">-8</span></div>
+                <p>Plataforma tecnológica modular para la autonomía hídrica de comunidades aisladas.</p>
+            </div>
+            <div>
+                <h4>Plataforma</h4>
+                <ul class="footer-links">
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="convocatoria.html">Convocatoria RELX</a></li>
+                    <li><a href="manaure.html">Piloto Manaure</a></li>
+                    <li><a href="contenedor.html">Contenedor</a></li>
+                    <li><a href="presupuesto.html">Presupuesto</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Sistema</h4>
+                <ul class="footer-links">
+                    <li><a href="captacion.html">Captación</a></li>
+                    <li><a href="pretratamiento.html">Pre-tratamiento</a></li>
+                    <li><a href="osmosis.html">Ósmosis Inversa</a></li>
+                    <li><a href="postratamiento.html">Post-tratamiento</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contacto</h4>
+                <ul class="footer-links">
+                    <li><a href="https://github.com/alejandro8ap/RELX" target="_blank">GitHub</a></li>
+                    <li><a href="#">Manaure, La Guajira</a></li>
+                    <li><a href="#">Colombia</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 AQUA-8 Platform | Código: AQ8-2026 | Open Engineering</p>
+        </div>
+    </footer>
+    <script src="../js/main.js"></script>
+</body>
+</html>
