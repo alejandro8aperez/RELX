@@ -1,12 +1,255 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AQUA-8 | Capítulos de Ingeniería</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio | AQUA-8 Platform</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💧</text></svg>">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-inner">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">A8</div>
+                <div class="logo-text">AQUA<span>-8</span></div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Inicio</a></li>
+                <li><a href="convocatoria.html">Convocatoria RELX</a></li>
+                <li><a href="manaure.html">Manaure</a></li>
+                <li><a href="contenedor.html">Contenedor</a></li>
+                <li><a href="captacion.html">Captación</a></li>
+                <li><a href="pretratamiento.html">Pre-tratamiento</a></li>
+                <li><a href="osmosis.html">Ósmosis Inversa</a></li>
+                <li><a href="postratamiento.html">Post-tratamiento</a></li>
+                <li><a href="almacenamiento.html">Almacenamiento</a></li>
+                <li><a href="energia.html">Energía Solar</a></li>
+                <li><a href="control.html">Control SCADA</a></li>
+                <li><a href="presupuesto.html">Presupuesto</a></li>
+                <li><a href="scada.html">Dashboard</a></li>
+            </ul>
+            <button class="mobile-toggle">☰</button>
+        </div>
+    </nav>
+
+    <main>
+    <section class="hero">
+        <div class="hero-particles"></div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="dot"></span>
+                Piloto Activo — Manaure, La Guajira
+            </div>
+            <h1>Autonomía Hídrica<br>para <span class="highlight">Comunidades Aisladas</span></h1>
+            <p class="hero-subtitle">AQUA-8 no es una planta desalinizadora. Es una plataforma tecnológica modular que integra ingeniería de procesos, energía renovable, automatización industrial y gestión inteligente del agua en un sistema escalable y fabricable.</p>
+            <div class="hero-cta">
+                <a href="convocatoria.html" class="btn btn-primary">Explorar el Proyecto →</a>
+                <a href="https://github.com/alejandro8ap/RELX" target="_blank" class="btn btn-outline">Ver en GitHub</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number" data-target="3000">0</span>
+                    <span class="stat-label">L/día de agua</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="8">0</span>
+                    <span class="stat-label">Módulos</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="100">0</span>
+                    <span class="stat-label">% Solar</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="12">0</span>
+                    <span class="stat-label">Julio Cierre</span>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>↓ Desplaza para explorar</span>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-header fade-in">
+            <span class="section-tag">Filosofía del Proyecto</span>
+            <h2>Open Engineering</h2>
+            <p class="section-desc">Cada cálculo, decisión, plano, simulación y documento está versionado y trazable. No almacenamos solo código; almacenamos conocimiento.</p>
+        </div>
+        <div class="card-grid">
+            <div class="card fade-in">
+                <div class="card-icon">📐</div>
+                <h3>Ingeniería de Procesos</h3>
+                <p>Diseño completo del sistema de tratamiento de agua marina mediante ósmosis inversa, con pre-tratamiento UF, post-tratamiento UV y remineralización.</p>
+            </div>
+            <div class="card fade-in">
+                <div class="card-icon">☀️</div>
+                <h3>Energía Renovable</h3>
+                <p>Sistema fotovoltaico de ~12 kWp con inversor híbrido, diseñado para operación 100% solar sin dependencia de red eléctrica.</p>
+            </div>
+            <div class="card fade-in">
+                <div class="card-icon">🤖</div>
+                <h3>Automatización Industrial</h3>
+                <p>PLC + HMI local con SCADA básico, sensores de presión, conductividad, ORP, pH y flujo para monitoreo en tiempo real.</p>
+            </div>
+            <div class="card fade-in">
+                <div class="card-icon">📊</div>
+                <h3>Gestión Inteligente</h3>
+                <p>Dashboard web AQUA-CLOUD para monitoreo remoto, AQUA-CORE para lógica de control y AQUA-AI para predicción de mantenimiento.</p>
+            </div>
+            <div class="card fade-in">
+                <div class="card-icon">🏗️</div>
+                <h3>Diseño Modular</h3>
+                <p>Contenedor marítimo 20' reacondicionado como núcleo del sistema. Fácil de transportar, instalar y replicar en cualquier comunidad costera.</p>
+            </div>
+            <div class="card fade-in">
+                <div class="card-icon">🌍</div>
+                <h3>Impacto Comunitario</h3>
+                <p>Piloto en Manaure, La Guajira — una de las regiones más áridas de Colombia. Diseñado con y para la comunidad local.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background: white; margin: 0; max-width: 100%; padding: 100px 2rem;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <div class="section-header fade-in">
+                <span class="section-tag">Arquitectura</span>
+                <h2>Estructura de la Plataforma</h2>
+                <p class="section-desc">Sistema de Gestión de Ingeniería (Engineering Management System) con trazabilidad completa.</p>
+            </div>
+            <div class="feature-row fade-in">
+                <div class="feature-content slide-in-left">
+                    <h3>📁 docs/ — Master Engineering Book</h3>
+                    <p>Toda la filosofía de diseño, decisiones arquitectónicas (ADRs), memorias técnicas y documentación normativa.</p>
+                    <ul class="feature-list">
+                        <li>Arquitectural Decision Records (ADRs)</li>
+                        <li>Memorias de cálculo</li>
+                        <li>Normas técnicas aplicables</li>
+                        <li>Base de conocimiento científico</li>
+                    </ul>
+                </div>
+                <div class="image-placeholder slide-in-right">
+                    <span class="icon">📚</span>
+                    <span>Documentación Técnica</span>
+                </div>
+            </div>
+            <div class="feature-row reverse fade-in">
+                <div class="feature-content slide-in-right">
+                    <h3>🔧 cad/ — Planos y Diseño Mecánico</h3>
+                    <p>Planos mecánicos, P&amp;IDs, PFDs, unifilares eléctricos y modelos 3D del sistema completo.</p>
+                    <ul class="feature-list">
+                        <li>Piping &amp; Instrumentation Diagrams</li>
+                        <li>Process Flow Diagrams</li>
+                        <li>Planos de instalación eléctrica</li>
+                        <li>Modelado 3D del contenedor</li>
+                    </ul>
+                </div>
+                <div class="image-placeholder slide-in-left">
+                    <span class="icon">📐</span>
+                    <span>Planos CAD</span>
+                </div>
+            </div>
+            <div class="feature-row fade-in">
+                <div class="feature-content slide-in-left">
+                    <h3>💻 software/ — Ecosistema de Aplicaciones</h3>
+                    <p>Tres aplicaciones interconectadas que forman el sistema de gestión inteligente del agua.</p>
+                    <ul class="feature-list">
+                        <li><strong>AQUA-CORE:</strong> Lógica de control y procesamiento de datos</li>
+                        <li><strong>AQUA-CLOUD:</strong> Dashboard web y monitoreo remoto</li>
+                        <li><strong>AQUA-AI:</strong> Predicción de mantenimiento y optimización</li>
+                    </ul>
+                </div>
+                <div class="image-placeholder slide-in-right">
+                    <span class="icon">💻</span>
+                    <span>Ecosistema de Software</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-header fade-in">
+            <span class="section-tag">Cronograma</span>
+            <h2>Línea de Tiempo del Proyecto</h2>
+            <p class="section-desc">Fase actual: Ingeniería Conceptual (FEED). Cierre de convocatoria RELX: 12 de julio de 2026.</p>
+        </div>
+        <div class="timeline" style="max-width: 700px; margin: 0 auto;">
+            <div class="timeline-item active fade-in">
+                <div class="timeline-date">Junio 2026</div>
+                <div class="timeline-title">Inicio del Proyecto — Fase FEED</div>
+                <div class="timeline-desc">Ingeniería conceptual completa, selección de equipos, diseño de proceso y estimación de costos.</div>
+            </div>
+            <div class="timeline-item fade-in">
+                <div class="timeline-date">Julio 2026</div>
+                <div class="timeline-title">Postulación RELX Environmental Challenge</div>
+                <div class="timeline-desc">Presentación de la propuesta ante el premio global de hasta USD $75,000 para proyectos de agua y medio ambiente.</div>
+            </div>
+            <div class="timeline-item fade-in">
+                <div class="timeline-date">Agosto — Septiembre 2026</div>
+                <div class="timeline-title">Ingeniería de Detalle &amp; Aprobaciones</div>
+                <div class="timeline-desc">Planos constructivos, aprobaciones normativas, adquisición de equipos y logística a La Guajira.</div>
+            </div>
+            <div class="timeline-item fade-in">
+                <div class="timeline-date">Octubre — Noviembre 2026</div>
+                <div class="timeline-title">Construcción &amp; Montaje</div>
+                <div class="timeline-desc">Acondicionamiento del contenedor, instalación de equipos, cableado y pruebas en sitio.</div>
+            </div>
+            <div class="timeline-item fade-in">
+                <div class="timeline-date">Diciembre 2026</div>
+                <div class="timeline-title">Puesta en Marcha &amp; Capacitación</div>
+                <div class="timeline-desc">Pruebas de funcionamiento, ajustes de proceso, capacitación del operador local y entrega a la comunidad.</div>
+            </div>
+        </div>
+    </section>
+
+    <section style="background: var(--aqua-gradient); padding: 80px 2rem; text-align: center;">
+        <div style="max-width: 700px; margin: 0 auto;">
+            <h2 style="color: white; font-size: 2.5rem; font-weight: 800; margin-bottom: 16px;">¿Quieres conocer más?</h2>
+            <p style="color: rgba(255,255,255,0.9); font-size: 1.2rem; margin-bottom: 32px;">Explora cada módulo del sistema, revisa el presupuesto detallado y conoce el impacto del proyecto en Manaure.</p>
+            <a href="convocatoria.html" class="btn btn-primary" style="font-size: 18px; padding: 18px 40px;">Comenzar el Recorrido →</a>
+        </div>
+    </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <div class="logo-text" style="font-size: 24px;">AQUA<span style="color: #00A3E0;">-8</span></div>
+                <p>Plataforma tecnológica modular para la autonomía hídrica de comunidades aisladas.</p>
+            </div>
+            <div>
+                <h4>Plataforma</h4>
+                <ul class="footer-links">
+                    <li><a href="convocatoria.html">Convocatoria RELX</a></li>
+                    <li><a href="manaure.html">Piloto Manaure</a></li>
+                    <li><a href="contenedor.html">Contenedor</a></li>
+                    <li><a href="presupuesto.html">Presupuesto</a></li>
+                <li><a href="scada.html">Dashboard</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Sistema</h4>
+                <ul class="footer-links">
+                    <li><a href="captacion.html">Captación</a></li>
+                    <li><a href="pretratamiento.html">Pre-tratamiento</a></li>
+                    <li><a href="osmosis.html">Ósmosis Inversa</a></li>
+                    <li><a href="postratamiento.html">Post-tratamiento</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contacto</h4>
+                <ul class="footer-links">
+                    <li><a href="https://github.com/alejandro8ap/RELX" target="_blank">GitHub</a></li>
+                    <li><a href="#">Manaure, La Guajira</a></li>
+                    <li><a href="#">Colombia</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 AQUA-8 Platform | Código: AQ8-2026 | Open Engineering</p>
+        </div>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
 </html>
