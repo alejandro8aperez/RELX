@@ -90,30 +90,60 @@ function createParticles() {
 
 function animateCounters() {
     const counters = document.querySelectorAll('.stat-number[data-target]');
-    
-    counters.forEach(counter => {
+    if (!counters.length) return;
+
+    function runCounter(counter) {
+        // Evitar doble ejecución
+        if (counter._done) return;
+        counter._done = true;
+
         const target = parseInt(counter.getAttribute('data-target'));
         const duration = 2000;
-        const step = target / (duration / 16);
-        let current = 0;
-        
-        const updateCounter = () => {
-            current += step;
-            if (current < target) {
-                counter.textContent = Math.floor(current).toLocaleString();
-                requestAnimationFrame(updateCounter);
+        const startTime = performance.now();
+
+        function easeOutQuad(t) { return t * (2 - t); }
+
+        function tick(now) {
+            const elapsed = now - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const value = Math.round(easeOutQuad(progress) * target);
+            counter.textContent = value.toLocaleString('es-CO');
+            if (progress < 1) {
+                requestAnimationFrame(tick);
             } else {
-                counter.textContent = target.toLocaleString();
+                counter.textContent = target.toLocaleString('es-CO');
             }
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            if (entries[0].isIntersecting) {
-                updateCounter();
-                observer.disconnect();
+        }
+
+        requestAnimationFrame(tick);
+    }
+
+    // FIX: detectar si el elemento ya es visible al cargar
+    // (el hero está en viewport desde el inicio — el Observer solo dispara
+    //  en elementos que ENTRAN al viewport, no los que ya están dentro)
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                runCounter(entry.target);
+                observer.unobserve(entry.target);
             }
         });
-        
-        observer.observe(counter);
+    }, { threshold: 0.1 });
+
+    counters.forEach(counter => {
+        // Verificar si ya está visible en el viewport
+        const rect = counter.getBoundingClientRect();
+        const alreadyVisible = (
+            rect.top >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+        );
+
+        if (alreadyVisible) {
+            // Ya está en pantalla — animar con pequeño delay para efecto visual
+            setTimeout(() => runCounter(counter), 300);
+        } else {
+            // Fuera de pantalla — Observer lo activa al hacer scroll
+            observer.observe(counter);
+        }
     });
 }
