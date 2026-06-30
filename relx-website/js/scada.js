@@ -41,10 +41,14 @@ async function fetchTelemetry() {
 async function fetchAlarms() {
     try {
         const res = await fetch(`${API_BASE}/api/alarms`);
-        if (!res.ok) return;
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const data = await res.json();
         renderAlarms(data.alarms);
-    } catch (e) {}
+    } catch (e) {
+        if (demoMode) {
+            renderAlarms(generateMockAlarms());
+        }
+    }
 }
 
 // ============================================
@@ -164,6 +168,22 @@ function formatUptime(seconds) {
     return `${h}h ${m}m ${s}s`;
 }
 
+function generateMockAlarms() {
+    const alarmTypes = [
+        { type: 'warning', message: 'Presión RO ligeramente alta', module: 'B' },
+        { type: 'info', message: 'Limpieza automática iniciada', module: 'A' },
+        { type: 'warning', message: 'Nivel de tanque > 90%', module: 'C' },
+        { type: 'info', message: 'Optimización energética activada', module: 'D' },
+    ];
+    const now = new Date();
+    return alarmTypes.map((a, i) => ({
+        alarm_type: a.type,
+        message: a.message,
+        module_code: a.module,
+        timestamp: new Date(now - i * 60000).toISOString()
+    }));
+}
+
 function updateConnectionStatus(connected) {
     const el = document.getElementById('connection-status');
     if (!el) return;
@@ -201,6 +221,7 @@ function renderAlarms(alarms) {
 
 function startLocalSimulation() {
     if (localSimInterval) return;
+    renderAlarms(generateMockAlarms());
     localSimInterval = setInterval(() => {
         for (let key in fallbackModules) {
             const mod = fallbackModules[key];
