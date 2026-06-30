@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manaure, La Guajira — El Piloto | AQUA-8</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <title>Manaure | AQUA-8 Platform</title>
+    <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💧</text></svg>">
 </head>
 <body>
     <nav class="navbar">
         <div class="navbar-inner">
-            <a href="../index.html" class="logo">
+            <a href="index.html" class="logo">
                 <div class="logo-icon">A8</div>
                 <div class="logo-text">AQUA<span>-8</span></div>
             </a>
             <ul class="nav-links">
-                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="index.html">Inicio</a></li>
                 <li><a href="convocatoria.html">Convocatoria RELX</a></li>
                 <li><a href="manaure.html" class="active">Manaure</a></li>
                 <li><a href="contenedor.html">Contenedor</a></li>
@@ -29,131 +29,98 @@
                 <li><a href="presupuesto.html">Presupuesto</a></li>
                 <li><a href="scada.html">Dashboard</a></li>
             </ul>
-            <button class="mobile-toggle">☰</button>
+            <div class='nav-arrows'><a href='convocatoria.html' aria-label='Anterior'>&larr;</a><button class='mobile-toggle'>MENU</button><a href='contenedor.html' aria-label='Siguiente'>&rarr;</a></div>
         </div>
     </nav>
 
     <main>
-        <section class="hero manaure">
-            <div class="hero-particles"></div>
-            <div class="hero-content">
-                <div class="hero-badge">
-                    <span class="dot"></span>
-                    Localización
-                </div>
-                <h1>Manaure,<br><span class="highlight">La Guajira — El Piloto</span></h1>
-                <p class="hero-subtitle">Uno de los territorios más áridos de Colombia, hogar de la comunidad Wayuu, donde la falta de acceso al agua potable es una crisis humanitaria y ambiental que requiere soluciones tecnológicas innovadoras.</p>
-                <div class="hero-cta">
-                    <a href="#datos" class="btn btn-primary">Datos Clave →</a>
-                    <a href="#por-que" class="btn btn-outline">¿Por qué Manaure?</a>
-                </div>
-            </div>
-            <div class="scroll-indicator">
-                <span>↓ Conoce el territorio</span>
-            </div>
-        </section>
+    <section style="background: linear-gradient(135deg, #FF6B35 0%, #F7931E 50%, #FFD23F 100%); padding: 140px 2rem 80px; text-align: center;">
+        <div style="max-width: 800px; margin: 0 auto;">
+            <span class="section-tag" style="background: rgba(255,255,255,0.2); color: white; border: 1px solid rgba(255,255,255,0.3);">Página 2</span>
+            <h1 style="color: white; font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; margin: 20px 0;">Manaure, La Guajira</h1>
+            <p style="color: rgba(255,255,255,0.9); font-size: 1.2rem;">Piloto de AQUA-8 en una de las regiones más áridas de Colombia</p>
+        </div>
+    </section>
 
-        <section class="section" id="datos">
-            <div class="section-header fade-in">
-                <span class="section-tag">Localización</span>
-                <h2>Datos del Municipio</h2>
-                <p class="section-desc">Manaure es un municipio costero ubicado en la península de La Guajira, al norte de Colombia, en la frontera con Venezuela.</p>
+    <section class="section">
+        <div class="feature-row fade-in">
+            <div class="feature-content slide-in-left">
+                <span class="section-tag">El Contexto</span>
+                <h3>La Guajira: Una Región en Crisis Hídrica</h3>
+                <p>La Guajira es el departamento más árido de Colombia, con precipitaciones anuales inferiores a 300 mm. La península de La Guajira enfrenta una crisis hídrica crónica que afecta a miles de familias Wayuu y comunidades costeras.</p>
+                <ul class="feature-list">
+                    <li><strong>Precipitación anual:</strong> Menos de 300 mm (promedio nacional: 2,600 mm)</li>
+                    <li><strong>Temperatura promedio:</strong> 28-32°C durante todo el año</li>
+                    <li><strong>Vientos alisios:</strong> Velocidades superiores a 40 km/h</li>
+                    <li><strong>Acceso al agua:</strong> Limitado, con alto costo de transporte</li>
+                </ul>
             </div>
-            <div class="specs-grid fade-in">
-                <div class="spec-item">
-                    <span class="spec-label">Municipio</span>
-                    <span class="spec-value">Manaure</span>
-                </div>
-                <div class="spec-item">
-                    <span class="spec-label">Departamento</span>
-                    <span class="spec-value">La Guajira</span>
-                </div>
-                <div class="spec-item">
-                    <span class="spec-label">País</span>
-                    <span class="spec-value">Colombia</span>
-                </div>
-                <div class="spec-item">
-                    <span class="spec-label">Población</span>
-                    <span class="spec-value">~120,000 hab.</span>
-                </div>
-                <div class="spec-item">
-                    <span class="spec-label">Comunidad Mayoritaria</span>
-                    <span class="spec-value">Wayuu (65%)</span>
-                </div>
-                <div class="spec-item">
-                    <span class="spec-label">Costa</span>
-                    <span class="spec-value">Atlántica — Mar Caribe</span>
-                </div>
-                <div class="spec-item">
-                    <span class="spec-label">Precipitación Anual</span>
-                    <span class="spec-value">&lt; 500 mm</span>
-                </div>
-                <div class="spec-item">
-                    <span class="spec-label">Temperatura Media</span>
-                    <span class="spec-value">32°C</span>
-                </div>
-            </div>
-        </section>
+            <div style="overflow: hidden; border-radius: var(--radius);"><img src="images/foto 8.png" alt="Mapa de Manaure, La Guajira — Municipio costero" class="feature-image slide-in-right" style="transform: scale(1.6);"></div>
+        </div>
 
-        <section class="section" id="por-que" style="background: var(--bg-alt);">
-            <div class="section-header fade-in">
-                <span class="section-tag">Contexto</span>
-                <h2>¿Por qué Manaure?</h2>
-                <p class="section-desc">La crisis hídrica en La Guajira es una de las más graves de América Latina. Manaure concentra todas las condiciones que hacen de AQUA-8 una solución necesaria y transformadora.</p>
+        <div class="feature-row reverse fade-in">
+            <div class="feature-content slide-in-right">
+                <span class="section-tag">Ubicación Piloto</span>
+                <h3>Manaure: Capital Salinera de Colombia</h3>
+                <p>Manaure es un municipio costero en el norte de La Guajira, conocido por sus salinas artesanales. Su ubicación junto al Mar Caribe lo convierte en el escenario ideal para un sistema de desalinización solar.</p>
+                <ul class="feature-list">
+                    <li><strong>Ubicación:</strong> 11°46'N, 72°27'O — Costa norte colombiana</li>
+                    <li><strong>Población:</strong> ~35,000 habitantes</li>
+                    <li><strong>Altitud:</strong> 10 msnm (metros sobre el nivel del mar)</li>
+                    <li><strong>Distancia al mar:</strong> Menos de 500 metros en zonas costeras</li>
+                    <li><strong>Irradiación solar:</strong> ~5.5 kWh/m²/día (excelente para fotovoltaico)</li>
+                </ul>
             </div>
-            <div class="card-grid">
-                <div class="card fade-in">
-                    <div class="card-icon">🏜️</div>
-                    <h3>Aridez Extrema</h3>
-                    <p>Manaure recibe menos de 500 mm de precipitación anual, con temporadas secas que pueden durar hasta 10 meses. Los cuerpos de agua superficial son prácticamente inexistentes.</p>
-                </div>
-                <div class="card fade-in">
-                    <div class="card-icon">👥</div>
-                    <h3>Comunidad Wayuu</h3>
-                    <p>El pueblo Wayuu representa el 65% de la población. Históricamente marginados, enfrentan las tasas más altas de mortalidad infantil por enfermedades hídricas en Colombia.</p>
-                </div>
-                <div class="card fade-in">
-                    <div class="card-icon">💧</div>
-                    <h3>Crisis de Agua Potable</h3>
-                    <p>Menos del 20% de la población tiene acceso continuo a agua potable. El agua se transporta en camiones cisterna a costos elevados, o se consume agua salobre contaminada.</p>
-                </div>
-                <div class="card fade-in">
-                    <div class="card-icon">🌊</div>
-                    <h3>Costa Atlántica</h3>
-                    <p>Ubicado directamente sobre el Mar Caribe, Manaure tiene acceso ilimitado a agua de mar — el recurso más abundante y subutilizado de la región para producir agua potable.</p>
-                </div>
-                <div class="card fade-in">
-                    <div class="card-icon">☀️</div>
-                    <h3>Radiación Solar Óptima</h3>
-                    <p>Con irradiación promedio superior a 5.5 kWh/m²/día, La Guajira tiene el mayor potencial solar de Colombia, ideal para operar un sistema 100% renovable.</p>
-                </div>
-                <div class="card fade-in">
-                    <div class="card-icon">🔁</div>
-                    <h3>Replicabilidad</h3>
-                    <p>Manaure representa cientos de comunidades costeras aisladas en el mundo. Un piloto exitoso aquí puede escalarse a otras regiones con condiciones similares.</p>
-                </div>
-            </div>
-        </section>
+            <img src="images/foto 9.png" alt="Mapa de ubicación — Manaure, La Guajira" class="feature-image slide-in-left">
+        </div>
 
-        <section class="section fade-in">
-            <div class="section-header">
-                <span class="section-tag">Mapa</span>
-                <h2>Ubicación Geográfica</h2>
-                <p class="section-desc">El piloto AQUA-8 se instalará en la zona costera de Manaure, sobre el Mar Caribe, en el norte del departamento de La Guajira.</p>
+        <div class="feature-row fade-in">
+            <div class="feature-content slide-in-left">
+                <span class="section-tag">Comunidad</span>
+                <h3>Población Beneficiaria</h3>
+                <p>El piloto de AQUA-8 está diseñado para beneficiar directamente a comunidades de Manaure que actualmente dependen de agua embotellada o transportada a alto costo.</p>
+                <ul class="feature-list">
+                    <li><strong>Familias beneficiadas estimadas:</strong> 50-100 familias (200-400 personas)</li>
+                    <li><strong>Consumo actual:</strong> ~2-3 USD/día por familia en agua embotellada</li>
+                    <li><strong>Calidad actual:</strong> Agua con alto contenido de sales y contaminantes</li>
+                    <li><strong>Componente comunitario:</strong> La comunidad participa en operación y mantenimiento</li>
+                </ul>
             </div>
-            <div class="image-placeholder" style="height: 400px; max-width: 800px; margin: 0 auto;">
-                <span class="icon">🗺️</span>
-                <span>Mapa de Manaure, La Guajira — Costa Atlántica</span>
-            </div>
-        </section>
+            <img src="images/foto 10.png" alt="Comunidad beneficiaria tomando agua limpia" class="feature-image slide-in-right">
+        </div>
 
-        <section class="section" style="background: var(--aqua-gradient); text-align: center; padding: 80px 2rem;">
-            <div style="max-width: 700px; margin: 0 auto;">
-                <h2 style="color: white; font-size: 2.5rem; font-weight: 800; margin-bottom: 16px;">El Corazón del Sistema</h2>
-                <p style="color: rgba(255,255,255,0.9); font-size: 1.2rem; margin-bottom: 32px;">Todo el sistema se aloja dentro de un contenedor marítimo de 20 pies. Diseñado para resistir el entorno costero extremo de La Guajira.</p>
-                <a href="contenedor.html" class="btn btn-primary" style="font-size: 18px; padding: 18px 40px;">Explorar el Contenedor →</a>
+        <div class="feature-row reverse fade-in">
+            <div class="feature-content slide-in-right">
+                <span class="section-tag">Recursos Naturales</span>
+                <h3>Ventajas del Sitio</h3>
+                <p>Manaure ofrece condiciones naturales excepcionales para un sistema de desalinización solar: acceso directo al mar, alta irradiación solar y terreno plano.</p>
+                <ul class="feature-list">
+                    <li><strong>Salinidad del mar:</strong> ~35,000 ppm TDS (Total Dissolved Solids)</li>
+                    <li><strong>Temperatura del agua:</strong> 26-29°C (ideal para membranas)</li>
+                    <li><strong>Irradiación solar promedio:</strong> 5.5 kWh/m²/día</li>
+                    <li><strong>Horas pico sol:</strong> ~5.5 horas/día</li>
+                    <li><strong>Viento:</strong> Constante, útil para enfriamiento pasivo</li>
+                </ul>
             </div>
-        </section>
+            <img src="images/foto 11.png" alt="Paneles solares en terreno desértico / Costa de Manaure" class="feature-image slide-in-left">
+        </div>
+
+        <div class="feature-row fade-in">
+            <div class="feature-content slide-in-left">
+                <span class="section-tag">Infraestructura</span>
+                <h3>Condiciones del Sitio Piloto</h3>
+                <p>El sitio seleccionado para la instalación del contenedor AQUA-8 cumple con los requisitos técnicos y logísticos para una operación exitosa.</p>
+                <ul class="feature-list">
+                    <li><strong>Terreno:</strong> Plano, estable, con acceso vehicular</li>
+                    <li><strong>Distancia al mar:</strong> < 200 m para toma de agua</li>
+                    <li><strong>Acceso:</strong> Vía pavimentada hasta el sitio</li>
+                    <li><strong>Seguridad:</strong> Zona con presencia comunitaria</li>
+                    <li><strong>Permisos:</strong> En coordinación con Corpoguajira</li>
+                </ul>
+            </div>
+            <img src="images/foto 12.jpg" alt="Sitio piloto — Terreno de instalación" class="feature-image slide-in-right">
+        </div>
+    </section>
     </main>
 
     <footer class="footer">
@@ -165,12 +132,10 @@
             <div>
                 <h4>Plataforma</h4>
                 <ul class="footer-links">
-                    <li><a href="../index.html">Inicio</a></li>
                     <li><a href="convocatoria.html">Convocatoria RELX</a></li>
                     <li><a href="manaure.html">Piloto Manaure</a></li>
                     <li><a href="contenedor.html">Contenedor</a></li>
                     <li><a href="presupuesto.html">Presupuesto</a></li>
-                <li><a href="scada.html">Dashboard</a></li>
                 </ul>
             </div>
             <div>
@@ -195,6 +160,6 @@
             <p>© 2026 AQUA-8 Platform | Código: AQ8-2026 | Open Engineering</p>
         </div>
     </footer>
-    <script src="../js/main.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
