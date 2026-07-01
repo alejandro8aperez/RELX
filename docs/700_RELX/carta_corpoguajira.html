@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Carta de Solicitud — Corpoguajira | AQUA-8</title>
+    <style>
+        :root {
+            --aqua-primary: #0066CC;
+            --aqua-dark: #003366;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #1a1a2e;
+            background: #f0f2f5;
+            padding: 40px 20px;
+        }
+        .letter {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 102, 204, 0.12);
+            padding: 60px 70px;
+        }
+        .header {
+            border-bottom: 3px solid var(--aqua-primary);
+            padding-bottom: 24px;
+            margin-bottom: 32px;
+        }
+        .header .project {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--aqua-dark);
+        }
+        .header .project span { color: var(--aqua-primary); }
+        .header .code {
+            font-size: 13px;
+            color: #666;
+            margin-top: 4px;
+        }
+        .subject {
+            background: #f0f7ff;
+            border-left: 4px solid var(--aqua-primary);
+            padding: 16px 20px;
+            margin-bottom: 28px;
+            font-weight: 600;
+            font-size: 15px;
+            color: var(--aqua-dark);
+        }
+        .date { text-align: right; margin-bottom: 24px; color: #666; font-size: 14px; }
+        .recipient { margin-bottom: 28px; }
+        .recipient p { margin-bottom: 2px; }
+        .salute { margin-bottom: 24px; font-size: 16px; }
+        h2 {
+            font-size: 18px;
+            color: var(--aqua-dark);
+            margin: 28px 0 12px 0;
+        }
+        p { margin-bottom: 14px; text-align: justify; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0 20px 0;
+            font-size: 14px;
+        }
+        th {
+            background: var(--aqua-dark);
+            color: white;
+            padding: 10px 14px;
+            text-align: left;
+            font-weight: 600;
+        }
+        td {
+            padding: 10px 14px;
+            border-bottom: 1px solid #e0e7ef;
+        }
+        tr:nth-child(even) td { background: #f8fafc; }
+        .commitments {
+            background: #f0f7ff;
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin: 20px 0;
+        }
+        .commitments li { margin-bottom: 8px; }
+        .contact {
+            margin-top: 28px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e7ef;
+            font-size: 14px;
+            color: #555;
+        }
+        .signature {
+            margin-top: 40px;
+            padding-top: 24px;
+            border-top: 2px solid #e0e7ef;
+        }
+        .signature p { margin-bottom: 4px; }
+        .signature .name {
+            font-weight: 700;
+            font-size: 18px;
+            color: var(--aqua-dark);
+            margin-top: 32px;
+        }
+        .signature .role {
+            font-size: 14px;
+            color: #666;
+        }
+        .footer-note {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 12px;
+            color: #999;
+        }
+        @media print {
+            body { background: white; padding: 0; }
+            .letter { box-shadow: none; padding: 40px; border-radius: 0; }
+        }
+        @media (max-width: 600px) {
+            .letter { padding: 24px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="letter">
+        <div class="header">
+            <div class="project">AQUA<span>-8</span></div>
+            <div class="code">Plataforma Tecnológica Modular para la Autonomía Hídrica</div>
+            <div class="code">Código: AQ8-2026 | Manaure, La Guajira</div>
+        </div>
+
+        <div class="date">Manaure, La Guajira — Julio de 2026</div>
+
+        <div class="recipient">
+            <p><strong>Señores</strong></p>
+            <p><strong>Corporación Autónoma Regional de La Guajira (Corpoguajira)</strong></p>
+            <p>Attn. Dirección de Gestión Ambiental</p>
+            <p>Riohacha, La Guajira</p>
+        </div>
+
+        <div class="subject">
+            Asunto: Solicitud de apoyo para ubicación del piloto AQUA-8 — Sistema de Desalinización Modular para Manaure, La Guajira
+        </div>
+
+        <p class="salute">Reciban un cordial saludo,</p>
+
+        <p>
+            Por medio de la presente, nos permitimos presentar el proyecto <strong>AQUA-8</strong> y solicitar respetuosamente el acompañamiento de Corpoguajira para la fase de ubicación e instalación de nuestro piloto de desalinización solar en el municipio de Manaure.
+        </p>
+
+        <h2>1. Presentación del Proyecto</h2>
+        <p>
+            AQUA-8 es una plataforma tecnológica modular de desalinización, 100% solar, diseñada para comunidades costeras sin acceso a agua potable. El sistema está alojado en un contenedor marítimo de 20 pies reacondicionado e integra captación, pre-tratamiento, ósmosis inversa, post-tratamiento y un sistema SCADA de monitoreo en tiempo real.
+        </p>
+        <p>
+            El piloto se ejecutará en Manaure como parte de la postulación al <strong>RELX Environmental Challenge 2026</strong> (premio de hasta USD \$75,000). La comunidad Wayúu será la beneficiaria directa del sistema, que producirá <strong>3,000 litros/día</strong> de agua potable a partir de agua de mar, con un consumo energético inferior a 3 kWh/m³.
+        </p>
+
+        <h2>2. Objetivo de la Solicitud</h2>
+        <p>
+            Solicitamos el acompañamiento de Corpoguajira para designar un <strong>facilitador técnico-local</strong> que nos apoye en la identificación del sitio óptimo para la instalación del piloto en Manaure. El facilitador ideal es una persona con conocimiento profundo del territorio, las comunidades, la normativa ambiental vigente y las condiciones logísticas de la zona.
+        </p>
+
+        <h2>3. Criterios de Selección del Sitio</h2>
+        <p>La selección del sitio es crítica para el éxito del proyecto. Los siguientes criterios deben ser evaluados en campo:</p>
+
+        <table>
+            <thead>
+                <tr><th style="width: 35%;">Criterio</th><th>Detalle</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Proximidad al mar</td><td>Distancia máxima 200 m para la tubería de captación de agua de mar</td></tr>
+                <tr><td>Acceso comunitario</td><td>Cercanía a viviendas Wayúu para facilitar la distribución de agua</td></tr>
+                <tr><td>Tenencia del terreno</td><td>Predio disponible sin conflictos legales ni de uso</td></tr>
+                <tr><td>Exposición solar</td><td>Zona despejada para paneles solares (mínimo 10 kWp instalados)</td></tr>
+                <tr><td>Impacto ambiental</td><td>Sitio que minimice afectación a ecosistemas sensibles</td></tr>
+                <tr><td>Logística</td><td>Acceso vehicular para transporte del contenedor de 40 pies</td></tr>
+                <tr><td>Salinas artesanales</td><td>Cercanía para integración de salmuera con economía local circular</td></tr>
+            </tbody>
+        </table>
+
+        <p>
+            Un facilitador de Corpoguajira conoce estas variables y puede agilizar significativamente la fase de ubicación, evitando errores costosos y garantizando el cumplimiento normativo desde el inicio.
+        </p>
+
+        <h2>4. Compromisos del Proyecto</h2>
+        <div class="commitments">
+            <ul>
+                <li>Presentar a Corpoguajira un informe técnico detallado del sitio seleccionado, incluyendo coordenadas, estudio de línea base y justificación ambiental.</li>
+                <li>Gestionar todos los permisos ambientales requeridos ante Corpoguajira antes del inicio de obras.</li>
+                <li>Implementar un plan de manejo de salmuera circular, integrando el rechazo de ósmosis con las salinas artesanales de Manaure.</li>
+                <li>Reportar indicadores de calidad de agua y desempeño ambiental durante toda la operación del piloto.</li>
+                <li>Incluir a Corpoguajira en las mesas de seguimiento y evaluación del proyecto.</li>
+                <li>Capacitar a un operador local Wayúu en operación y mantenimiento básico del sistema.</li>
+            </ul>
+        </div>
+
+        <h2>5. Datos del Proyecto</h2>
+        <div class="contact">
+            <p><strong>Proyecto:</strong> AQUA-8 Smart Water Hub — Piloto Manaure</p>
+            <p><strong>Código:</strong> AQ8-2026</p>
+            <p><strong>Ubicación:</strong> Manaure, La Guajira, Colombia</p>
+            <p><strong>Financiamiento:</strong> RELX Environmental Challenge 2026 (USD \$75,000)</p>
+            <p><strong>Capacidad:</strong> 3,000 L/día — 100% solar — < 3 kWh/m³</p>
+            <p><strong>Repositorio público:</strong> <a href="https://github.com/alejandro8ap/RELX">github.com/alejandro8ap/RELX</a></p>
+            <p><strong>Documentación técnica:</strong> Ingeniería conceptual (FEED) disponible bajo solicitud</p>
+        </div>
+
+        <div class="signature">
+            <p>Agradecemos su valioso apoyo y quedamos atentos a la designación del facilitador para dar inicio a la fase de campo en Manaure.</p>
+
+            <p class="name">Alejandro 8AP</p>
+            <p class="role">Ingeniería AQUA-8 — Plataforma Tecnológica Modular</p>
+            <p class="role" style="margin-top: 8px;">Manaure, La Guajira — Colombia</p>
+        </div>
+
+        <div class="footer-note">
+            AQUA-8 — Open Engineering · Código AQ8-2026 · Julio 2026
+        </div>
+    </div>
+</body>
+</html>
