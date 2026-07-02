@@ -9,3 +9,6 @@ venv/
 node_modules/
 frontend/dist/
 frontend-react/
+
+AQUA8_PLATFORM/
+RELX/
