@@ -12,3 +12,6 @@ frontend-react/
 
 AQUA8_PLATFORM/
 RELX/
+
+# CV source files
+*.docx
