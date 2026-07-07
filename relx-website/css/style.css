@@ -1447,3 +1447,48 @@ img {
 }
 
 
+
+/* ============================================
+   LANGUAGE FLOATING SWITCHER
+   ============================================ */
+
+.lang-float {
+    position: fixed;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+    padding: 8px 6px;
+}
+.lang-float-btn {
+    background: none;
+    border: none;
+    padding: 10px 4px;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    color: #4a4a6a;
+    border-radius: 8px;
+    transition: all 0.3s;
+    writing-mode: vertical-lr;
+    letter-spacing: 1px;
+    line-height: 1.2;
+}
+.lang-float-btn:hover { background: #e6f4ff; }
+.lang-float-btn.active { color: white; background: linear-gradient(135deg, #0066CC, #00A3E0); }
+.lang-float-divider {
+    width: 22px;
+    height: 1px;
+    background: #e0e0e0;
+    margin: 2px 0;
+}
+.goog-te-banner-frame.skiptranslate { display: none !important; }
+body { top: 0px !important; }
+.goog-te-gadget-simple { display: none; }

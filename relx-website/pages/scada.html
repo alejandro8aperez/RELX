@@ -222,5 +222,27 @@
         </div>
     </footer>
     <script src="../js/scada.js"></script>
+    <!-- Google Translate -->
+    <div id="google_translate_element" style="display:none;"></div>
+    <div class="lang-float">
+        <button class="lang-float-btn" data-lang="es" onclick="translateTo('es')" title="Español">ES</button>
+        <div class="lang-float-divider"></div>
+        <button class="lang-float-btn" data-lang="en" onclick="translateTo('en')" title="English">EN</button>
+    </div>
+    <script>
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'es',
+            includedLanguages: 'en,es',
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+            autoDisplay: false
+        }, 'google_translate_element');
+    }
+    function translateTo(lang) {
+        var c = document.querySelector('.goog-te-combo');
+        if (c) { c.value = lang; c.dispatchEvent(new Event('change')); }
+    }
+    </script>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
