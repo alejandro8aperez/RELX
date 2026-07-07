@@ -155,84 +155,49 @@ body {
    HERO SECTION
    ============================================ */
 .hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     position: relative;
     background: var(--aqua-gradient);
     overflow: hidden;
-    padding: 120px 2rem 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.hero-split {
-    padding: 100px 2rem 60px;
-}
-
-.hero-split-bg {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 50%;
-    background: linear-gradient(135deg, rgba(0,102,204,0.3) 0%, rgba(0,163,224,0.15) 50%, rgba(0,212,170,0.1) 100%), url('../assets/images/Introduccion.png') center/cover no-repeat;
-    opacity: 0.25;
-    z-index: 0;
-}
-
-.hero-split-inner {
+.hero-content-top {
     position: relative;
     z-index: 2;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 48px;
-    align-items: center;
-    max-width: 1200px;
-    width: 100%;
-    margin: 0 auto;
+    text-align: center;
+    max-width: 800px;
+    padding: 80px 2rem 60px;
 }
 
-.hero-split-text {
-    text-align: left;
-}
-
-.hero-split-text .hero-badge {
+.hero-content-top .hero-badge {
     margin-bottom: 24px;
 }
 
-.hero-split-text .hero-subtitle {
-    margin: 0 0 28px 0;
+.hero-content-top .hero-subtitle {
+    max-width: 700px;
 }
 
-.hero-split-text .hero-cta {
-    justify-content: flex-start;
-    margin-top: 28px;
+.hero-image-full {
+    width: 100vw;
+    margin: 0 calc(-50vw + 50%);
+    position: relative;
+    z-index: 2;
 }
 
-.hero-split-text .hero-stats {
-    justify-content: flex-start;
-    gap: 32px;
-    margin-top: 36px;
-}
-
-.hero-split-image {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.hero-infographic {
+.hero-image-full img {
     width: 100%;
-    max-width: 560px;
     height: auto;
-    border-radius: var(--radius);
-    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-    transition: var(--transition);
+    display: block;
 }
 
-.hero-infographic:hover {
-    transform: scale(1.02);
-    box-shadow: 0 25px 80px rgba(0,0,0,0.4);
+.hero-content-bottom {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 800px;
+    padding: 60px 2rem 80px;
 }
 
 .hero::before {
@@ -950,37 +915,22 @@ body {
         grid-template-columns: 1fr 1fr;
     }
 
-    .hero-split-inner {
-        grid-template-columns: 1fr;
-        text-align: center;
+    .hero-content-top {
+        padding: 60px 1rem 40px;
     }
 
-    .hero-split-text {
-        text-align: center;
+    .hero-content-bottom {
+        padding: 40px 1rem 60px;
     }
 
-    .hero-split-text .hero-cta {
-        justify-content: center;
+    .hero-image-full {
+        width: 100%;
+        margin: 0;
     }
 
-    .hero-split-text .hero-stats {
-        justify-content: center;
-    }
-
-    .hero-split-image {
-        order: -1;
-    }
-
-    .hero-infographic {
-        max-width: 100%;
-    }
-
-    .hero-split-bg {
-        display: none;
-    }
-
-    .hero-split {
-        padding: 100px 1rem 60px;
+    .hero-badge {
+        font-size: 12px;
+        padding: 6px 14px;
     }
 }
 
