@@ -3,7 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio | AQUA-8 Platform</title>
+    <title>AQUA-8 Platform — Autonomía Hídrica para Comunidades Aisladas | RELX 2026</title>
+    <meta name="description" content="AQUA-8: Plataforma modular de desalinización solar para comunidades Wayúu en La Guajira, Colombia. Proyecto postulado al RELX Environmental Challenge 2026.">
+    <meta property="og:title" content="AQUA-8 Platform — Autonomía Hídrica">
+    <meta property="og:description" content="Plataforma modular de desalinización solar 100% para comunidades aisladas. RELX Environmental Challenge 2026.">
+    <meta property="og:image" content="assets/images/hero.png">
+    <meta name="theme-color" content="#0066CC">
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💧</text></svg>">
 </head>
@@ -30,12 +35,16 @@
                 <li><a href="pages/presupuesto.html">Presupuesto</a></li>
                 <li><a href="pages/scada.html">Dashboard</a></li>
             </ul>
+            <div class="lang-toggle">
+                <a href="index.html" class="active">ES</a>
+                <a href="en/index.html">EN</a>
+            </div>
             <button class="mobile-toggle">☰</button>
         </div>
     </nav>
 
     <main>
-    <section class="hero">
+    <section class="hero" style="background: linear-gradient(135deg, rgba(0,102,204,0.85) 0%, rgba(0,163,224,0.75) 50%, rgba(0,212,170,0.7) 100%), url('assets/images/Introduccion.png') center/cover no-repeat;">
         <div class="hero-particles"></div>
         <div class="hero-content">
             <div class="hero-badge">
@@ -48,22 +57,26 @@
                 <a href="pages/convocatoria.html" class="btn btn-primary">Explorar el Proyecto →</a>
                 <a href="https://github.com/alejandro8ap/RELX" target="_blank" class="btn btn-outline">Ver en GitHub</a>
             </div>
+            <div class="relx-banner">
+                <span class="prize-badge">$75,000</span>
+                Postulado al RELX Environmental Challenge 2026
+            </div>
             <div class="hero-stats">
                 <div class="stat-item">
-                    <span class="stat-number" data-target="3000">0</span>
-                    <span class="stat-label">L/día de agua</span>
+                    <span class="stat-number" data-target="450">0</span>
+                    <span class="stat-label">Personas con Agua</span>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-number" data-target="8">0</span>
-                    <span class="stat-label">Módulos</span>
+                    <span class="stat-number" data-target="3000" data-suffix="L/d">0</span>
+                    <span class="stat-label">Agua Potable/día</span>
                 </div>
                 <div class="stat-item">
                     <span class="stat-number" data-target="100">0</span>
-                    <span class="stat-label">% Solar</span>
+                    <span class="stat-label">% Energía Solar</span>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-number" data-target="12">0</span>
-                    <span class="stat-label">Julio Cierre</span>
+                    <span class="stat-number" data-target="80">0</span>
+                    <span class="stat-label">% Menos EDA</span>
                 </div>
             </div>
         </div>
@@ -112,6 +125,55 @@
         </div>
     </section>
 
+    <!-- RELX Criteria Alignment -->
+    <section class="section" style="background: var(--bg-light); margin: 0; max-width: 100%; padding: 100px 2rem;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <div class="section-header fade-in">
+                <span class="section-tag">RELX Environmental Challenge</span>
+                <h2>Evaluación del Jurado</h2>
+                <p class="section-desc">AQUA-8 responde directamente a los 6 criterios de evaluación del RELX Environmental Challenge 2026.</p>
+            </div>
+            <div class="criteria-grid fade-in">
+                <div class="criteria-card">
+                    <div class="criteria-icon">💡</div>
+                    <span class="criteria-badge">Innovación</span>
+                    <h3>Plataforma Modular Open Engineering</h3>
+                    <p>Arquitectura LEGO industrial con contenedor 20', SCADA propio, AQUA-CORE/CLOUD/AI y recuperación de energía ERD. No hay sistema similar documentado como open source.</p>
+                </div>
+                <div class="criteria-card">
+                    <div class="criteria-icon">🌱</div>
+                    <span class="criteria-badge">Impacto Ambiental</span>
+                    <h3>Cero Emisiones, Cero Salmuera al Mar</h3>
+                    <p>100% solar — evita 2.5 ton CO₂/año vs plantas diésel. Salmuera a economía circular (producción de sal). Sin baterías: VFD solar directo reduce residuos electrónicos.</p>
+                </div>
+                <div class="criteria-card">
+                    <div class="criteria-icon">📈</div>
+                    <span class="criteria-badge">Escalabilidad</span>
+                    <h3>Replicable en Cualquier Costa</h3>
+                    <p>Contenedores estandarizados: de 1 unidad (3,000 L/d) a N contenedores (escalable). Costo marginal decreciente. Manual de replicación open source incluido.</p>
+                </div>
+                <div class="criteria-card">
+                    <div class="criteria-icon">⚙️</div>
+                    <span class="criteria-badge">Viabilidad Técnica</span>
+                    <h3>Ingeniería Validada y Versionada</h3>
+                    <p>Memorias de cálculo, P&IDs, ADRs, planos CAD y simulaciones publicadas en GitHub. Ciclo de vida completo documentado con trazabilidad ISO 9001.</p>
+                </div>
+                <div class="criteria-card">
+                    <div class="criteria-icon">💰</div>
+                    <span class="criteria-badge">Costo-Efectividad</span>
+                    <h3>$76,200 — el sistema más competitivo</h3>
+                    <p>Costo por L/día de $25.4 — menor que Fluence NIROBOX (\$40/L/d) y Elemental Watermakers (\$50/L/d). Opex de \$0.35/m³ vs mercado \$0.80-1.20.</p>
+                </div>
+                <div class="criteria-card">
+                    <div class="criteria-icon">♻️</div>
+                    <span class="criteria-badge">Sostenibilidad</span>
+                    <h3>Co-diseñado con la Comunidad Wayúu</h3>
+                    <p>Operadores locales capacitados, asistencia remota vía IoT, repuestos estándar disponibles en Colombia. Sin dependencia tecnológica externa a largo plazo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="section" style="background: white; margin: 0; max-width: 100%; padding: 100px 2rem;">
         <div style="max-width: 1200px; margin: 0 auto;">
             <div class="section-header fade-in">
@@ -145,9 +207,8 @@
                         <li>Modelado 3D del contenedor</li>
                     </ul>
                 </div>
-                <div class="image-placeholder slide-in-left">
-                    <span class="icon">📐</span>
-                    <span>Planos CAD</span>
+                <div class="image-placeholder slide-in-left" style="background:none;border:none;padding:0;">
+                    <img src="assets/images/autocad1.png" alt="Planos CAD" style="width:100%;height:100%;object-fit:cover;border-radius:var(--radius);">
                 </div>
             </div>
             <div class="feature-row fade-in">
@@ -160,9 +221,8 @@
                         <li><strong>AQUA-AI:</strong> Predicción de mantenimiento y optimización</li>
                     </ul>
                 </div>
-                <div class="image-placeholder slide-in-right">
-                    <span class="icon">💻</span>
-                    <span>Ecosistema de Software</span>
+                <div class="image-placeholder slide-in-right" style="background:none;border:none;padding:0;">
+                    <img src="assets/images/foto-3.png" alt="Ecosistema de Software AQUA-8" style="width:100%;height:100%;object-fit:cover;border-radius:var(--radius);">
                 </div>
             </div>
         </div>
@@ -199,6 +259,77 @@
                 <div class="timeline-date">Diciembre 2026</div>
                 <div class="timeline-title">Puesta en Marcha &amp; Capacitación</div>
                 <div class="timeline-desc">Pruebas de funcionamiento, ajustes de proceso, capacitación del operador local y entrega a la comunidad.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Impact -->
+    <section class="section">
+        <div class="section-header fade-in">
+            <span class="section-tag">Impacto</span>
+            <h2>¿Por qué La Guajira?</h2>
+            <p class="section-desc">Manaure tiene la mayor tasa de mortalidad infantil por EDA del Caribe colombiano. 67% de los niños Wayúu presentan desnutrición crónica. El agua no es un lujo — es un derecho.</p>
+        </div>
+        <div class="impact-showcase fade-in">
+            <div class="impact-card">
+                <span class="impact-number" data-target="450">0</span>
+                <span class="impact-label">Personas beneficiadas</span>
+                <span class="impact-sub">directamente en Fase I</span>
+            </div>
+            <div class="impact-card">
+                <span class="impact-number" data-target="80">0</span>
+                <span class="impact-label">% Reducción EDA</span>
+                <span class="impact-sub">enfermedad diarreica aguda</span>
+            </div>
+            <div class="impact-card">
+                <span class="impact-number" data-target="4">0</span>
+                <span class="impact-label">Horas/día recuperadas</span>
+                <span class="impact-sub">niños a la escuela, mujeres al trabajo</span>
+            </div>
+            <div class="impact-card">
+                <span class="impact-number" data-target="25">0</span>
+                <span class="impact-label">Años de vida útil</span>
+                <span class="impact-sub">del sistema AQUA-8</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Preview -->
+    <section class="section" style="background: var(--bg-light); margin: 0; max-width: 100%; padding: 100px 2rem;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <div class="section-header fade-in">
+                <span class="section-tag">Equipo</span>
+                <h2>Conoce al Equipo AQUA-8</h2>
+                <p class="section-desc">Cuatro profesionales con más de 80 años combinados de experiencia en ingeniería, comunidades indígenas y economía.</p>
+            </div>
+            <div class="team-preview fade-in">
+                <div class="team-card">
+                    <div class="team-avatar">AO</div>
+                    <h4>Alejandro Ochoa</h4>
+                    <div class="team-role">Ingeniero Eléctrico</div>
+                    <p>20+ años en automatización, SCADA y energía solar. Arquitecto del sistema eléctrico de AQUA-8.</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">RB</div>
+                    <h4>Rubén D. Botero</h4>
+                    <div class="team-role">Sociólogo — Comunidades</div>
+                    <p>30+ años con el pueblo Wayúu. Consulta Previa, etnología y co-diseño comunitario participativo.</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">HI</div>
+                    <h4>Hugo A. Isaza</h4>
+                    <div class="team-role">Economista Industrial</div>
+                    <p>Análisis de viabilidad, presupuesto y modelo de negocio para escalabilidad del proyecto.</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">BP</div>
+                    <h4>Bertulfo Pérez</h4>
+                    <div class="team-role">Ingeniero Ambiental</div>
+                    <p>Evaluación de impacto, calidad de agua, manejo de salmuera y economía circular.</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 32px;">
+                <a href="pages/equipo.html" class="btn btn-primary">Ver equipo completo →</a>
             </div>
         </div>
     </section>
@@ -248,7 +379,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>© 2026 AQUA-8 Platform | Código: AQ8-2026 | Open Engineering</p>
+            <p>© 2026 AQUA-8 Platform | Código: AQ8-2026 | Open Engineering | RELX Environmental Challenge 2026</p>
         </div>
     </footer>
     <script src="js/main.js"></script>

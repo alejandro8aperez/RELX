@@ -89,7 +89,7 @@ function createParticles() {
 }
 
 function animateCounters() {
-    const counters = document.querySelectorAll('.stat-number[data-target]');
+    const counters = document.querySelectorAll('.stat-number[data-target], .impact-number[data-target]');
     if (!counters.length) return;
 
     function runCounter(counter) {
@@ -107,11 +107,13 @@ function animateCounters() {
             const elapsed = now - startTime;
             const progress = Math.min(elapsed / duration, 1);
             const value = Math.round(easeOutQuad(progress) * target);
-            counter.textContent = value.toLocaleString('es-CO');
+            const suffix = counter.getAttribute('data-suffix') || '';
+            counter.textContent = value.toLocaleString('es-CO') + suffix;
             if (progress < 1) {
                 requestAnimationFrame(tick);
             } else {
-                counter.textContent = target.toLocaleString('es-CO');
+                const suffix = counter.getAttribute('data-suffix') || '';
+                counter.textContent = target.toLocaleString('es-CO') + suffix;
             }
         }
 
