@@ -51,7 +51,7 @@ Un facilitador de Corpoguajira conoce estas variables y puede agilizar significa
 
 **Proyecto:** AQUA-8 Platform
 **Código:** AQ8-2026
-**Contacto:** Alejandro 8AP
+**Contacto:** Alejandro Ochoa
 **Email:** — (pendiente)
 **Repositorio público:** https://github.com/alejandro8ap/RELX
 
@@ -61,5 +61,5 @@ Agradecemos su valioso apoyo y quedamos atentos a la designación del facilitado
 
 Atentamente,
 
-**Alejandro 8AP**
+**Alejandro Ochoa**
 Ingeniería AQUA-8
