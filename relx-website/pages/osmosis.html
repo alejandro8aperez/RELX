@@ -30,7 +30,6 @@
                 <li><a href="presupuesto.html">Presupuesto</a></li>
                 <li><a href="corpoguajira.html">Corpoguajira</a></li>
                 <li><a href="escalamiento.html">Escalamiento</a></li>
-                <li><a href="reverse-osmosis.html">Documento RO</a></li>
                 <li><a href="scada.html">Dashboard</a></li>
             </ul>
             <button class="mobile-toggle">☰</button>
@@ -48,8 +47,8 @@
                 <h1>Ósmosis Inversa<br><span class="highlight">de Agua de Mar (SWRO)</span></h1>
                 <p class="hero-subtitle">Corazón del proceso de desalinización. Membranas de ósmosis inversa de alta presión que separan las sales disueltas del agua de mar, produciendo agua purificada con una eficiencia superior al 99% de rechazo de sales.</p>
                 <div class="hero-cta">
-                    <a href="#especificaciones" class="btn btn-primary">Especificaciones →</a>
-                    <a href="#componentes" class="btn btn-outline">Componentes</a>
+                    <a href="#diagrama-general" class="btn btn-primary">Diagrama General →</a>
+                    <a href="#especificaciones" class="btn btn-outline">Especificaciones</a>
                 </div>
             </div>
             <div class="scroll-indicator">
@@ -57,20 +56,34 @@
             </div>
         </section>
 
-        <section class="section" id="especificaciones">
+        <section class="section" id="diagrama-general">
+            <div class="section-header fade-in">
+                <span class="section-tag">REVERSE OSMOSIS PROYECTO AQUA-8</span>
+                <h2>Diagrama General del Sistema SWRO</h2>
+                <p class="section-desc">Vista general del sistema de ósmosis inversa para el proyecto AQUA-8, incluyendo el tren de membranas, bombas de alta presión, sistema de recuperación de energía y los puntos de monitoreo principales.</p>
+            </div>
+            <div class="fade-in" style="max-width:1100px;margin:0 auto;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);">
+                <img src="../assets/images/ro_doc/image1.png" alt="Diagrama General del Sistema SWRO" style="width:100%;height:auto;display:block;">
+            </div>
+            <div class="fade-in" style="max-width:800px;margin:32px auto 0;text-align:center;color:var(--text-light);font-size:0.95rem;">
+                <p>Diagrama de flujo del proceso de ósmosis inversa del proyecto AQUA-8. Se muestran las principales líneas de proceso, equipos y puntos de instrumentación del tren SWRO.</p>
+            </div>
+        </section>
+
+        <section class="section" id="especificaciones" style="background: var(--bg-alt);">
             <div class="section-header fade-in">
                 <span class="section-tag">Ósmosis Inversa</span>
                 <h2>Especificaciones Técnicas SWRO</h2>
-                <p class="section-desc">Parámetros de diseño del sistema de ósmosis inversa para agua de mar.</p>
+                <p class="section-desc">Parámetros de diseño del sistema de ósmosis inversa para agua de mar del proyecto AQUA-8.</p>
             </div>
             <div class="specs-grid fade-in">
                 <div class="spec-item">
                     <span class="spec-label">Membranas</span>
-                    <span class="spec-value">Filmtec BW30-4040</span>
+                    <span class="spec-value">Filmtec SW30HRLE-4040</span>
                 </div>
                 <div class="spec-item">
                     <span class="spec-label">Recuperación</span>
-                    <span class="spec-value">35–45%</span>
+                    <span class="spec-value">37.5%</span>
                 </div>
                 <div class="spec-item">
                     <span class="spec-label">Rechazo de Sales</span>
@@ -78,24 +91,46 @@
                 </div>
                 <div class="spec-item">
                     <span class="spec-label">Presión Operación</span>
-                    <span class="spec-value">55–68 bar</span>
+                    <span class="spec-value">60 bar</span>
                 </div>
                 <div class="spec-item">
-                    <span class="spec-label">Arreglo</span>
-                    <span class="spec-value">2 etapas (tren)</span>
+                    <span class="spec-label">Caudal Permeado</span>
+                    <span class="spec-value">3.0 m³/día</span>
                 </div>
                 <div class="spec-item">
                     <span class="spec-label">Bomba Alta Presión</span>
-                    <span class="spec-value">Multietapa horizontal</span>
+                    <span class="spec-value">Multietapa horizontal SS316</span>
                 </div>
                 <div class="spec-item">
                     <span class="spec-label">Potencia BAP</span>
                     <span class="spec-value">2.2 kW (3 HP)</span>
                 </div>
                 <div class="spec-item">
-                    <span class="spec-label">Recuperación Energía</span>
-                    <span class="spec-value">ERD tipo turbina</span>
+                    <span class="spec-label">Consumo Específico</span>
+                    <span class="spec-value">2.60 kWh/m³</span>
                 </div>
+                <div class="spec-item">
+                    <span class="spec-label">Recuperación Energía</span>
+                    <span class="spec-value">ERD isobárico Danfoss iSave 21</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-label">Arreglo</span>
+                    <span class="spec-value">2 vessels × 1 elemento en paralelo</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-header fade-in">
+                <span class="section-tag">Proceso</span>
+                <h2>Diagrama de Flujo del Proceso (PFD)</h2>
+                <p class="section-desc">Diagrama de flujo detallado del proceso de ósmosis inversa incluyendo las etapas de pre-tratamiento, separación por membranas y postratamiento.</p>
+            </div>
+            <div class="fade-in" style="max-width:1100px;margin:0 auto;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);">
+                <img src="../assets/images/ro_doc/image2.png" alt="Diagrama de Flujo del Proceso SWRO" style="width:100%;height:auto;display:block;">
+            </div>
+            <div class="fade-in" style="max-width:800px;margin:32px auto 0;text-align:center;color:var(--text-light);font-size:0.95rem;">
+                <p>Diagrama de flujo del proceso (PFD) que ilustra la ruta del agua desde la captación marina hasta el almacenamiento de agua producto, pasando por pre-tratamiento, ósmosis inversa, recuperación de energía y postratamiento.</p>
             </div>
         </section>
 
@@ -109,33 +144,75 @@
                 <div class="card fade-in">
                     <div class="card-icon">🧬</div>
                     <h3>Membranas SWRO</h3>
-                    <p>Membranas de espiral enrollada Filmtec BW30-4040 o equivalente, con área activa de 7.6 m² por elemento. Material de poliamida de capa fina (TFC) con alta resistencia al ensuciamiento y al cloro residual.</p>
+                    <p>Membranas de espiral enrollada Filmtec SW30HRLE-4040 con área activa de 7.6 m² por elemento. Material de poliamida de capa fina (TFC) con alta resistencia al ensuciamiento. Configuración de 2 vessels × 1 elemento en paralelo para redundancia.</p>
                 </div>
                 <div class="card fade-in">
                     <div class="card-icon">⚡</div>
                     <h3>Bomba de Alta Presión</h3>
-                    <p>Bomba centrífuga multietapa horizontal de acero inoxidable 316, diseñada para operar a 55–68 bar con caudal de 8 m³/día. Incluye variador de frecuencia (VFD) para ajuste de presión según condiciones del agua de mar.</p>
-                </div>
-                <div class="card fade-in">
-                    <div class="card-icon">🔄</div>
-                    <h3>Arreglo de 2 Etapas</h3>
-                    <p>Configuración en tándem de 2 etapas: la primera etapa opera a mayor presión y la segunda etapa procesa el permeado de la primera. Optimiza la recuperación total y reduce el consumo energético específico.</p>
+                    <p>Bomba centrífuga multietapa horizontal de acero inoxidable 316, diseñada para operar a 60 bar con caudal de 1.0 m³/h (24 m³/día). Incluye variador de frecuencia (VFD) con control MPPT integrado para operación solar directa.</p>
                 </div>
                 <div class="card fade-in">
                     <div class="card-icon">♻️</div>
                     <h3>Recuperación de Energía</h3>
-                    <p>Sistema de recuperación de energía (ERD) tipo turbina Pelton o intercambiador de presión que captura la energía del rechazo (salmuera) a alta presión y la transfiere al agua de alimentación, reduciendo el consumo energético hasta un 30%.</p>
+                    <p>Sistema isobárico Danfoss iSave 21 con 92% de eficiencia. Captura la energía hidráulica de la corriente de salmuera (62.5% del caudal a ~63 bar) y la transfiere directamente al agua de alimentación, logrando un consumo específico de 2.60 kWh/m³.</p>
+                </div>
+                <div class="card fade-in">
+                    <div class="card-icon">📊</div>
+                    <h3>Monitoreo SCADA</h3>
+                    <p>Sensores en línea de presión, caudal, conductividad, temperatura y pH en tiempo real. Datos transmitidos vía Starlink al dashboard AQUA-CLOUD con alertas automáticas y generación de reportes.</p>
                 </div>
             </div>
         </section>
 
-        <section class="section fade-in">
-            <div class="section-header">
-                <span class="section-tag">Proceso</span>
-                <h2>Balance de Masa SWRO</h2>
-                <p class="section-desc">Diagrama de flujo másico del proceso de ósmosis inversa para las condiciones de diseño.</p>
+        <section class="section">
+            <div class="section-header fade-in">
+                <span class="section-tag">Arreglo</span>
+                <h2>Configuración del Tren de Membranas</h2>
+                <p class="section-desc">Arreglo detallado de las membranas de ósmosis inversa, incluyendo los vessels a presión, las conexiones hidráulicas y los puntos de instrumentación.</p>
             </div>
-            <div class="feature-row fade-in">
+            <div class="fade-in" style="max-width:1100px;margin:0 auto;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);">
+                <img src="../assets/images/ro_doc/image3.png" alt="Configuración del Tren de Membranas" style="width:100%;height:auto;display:block;">
+            </div>
+            <div class="fade-in" style="max-width:800px;margin:32px auto 0;text-align:center;color:var(--text-light);font-size:0.95rem;">
+                <p>Distribución de los elementos de membrana en configuración paralelo. Cada vessel aloja un elemento SW30HRLE-4040. La configuración en paralelo permite que si un elemento requiere mantenimiento, el otro continúe operando al 50% de capacidad nominal.</p>
+            </div>
+        </section>
+
+        <section class="section" style="background: var(--bg-alt);">
+            <div class="section-header fade-in">
+                <span class="section-tag">Energía</span>
+                <h2>Sistema de Recuperación de Energía</h2>
+                <p class="section-desc">Diagrama del sistema isobárico de recuperación de energía (ERD) que permite alcanzar un consumo específico de 2.60 kWh/m³.</p>
+            </div>
+            <div class="fade-in" style="max-width:1100px;margin:0 auto;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);">
+                <img src="../assets/images/ro_doc/image4.png" alt="Sistema de Recuperación de Energía" style="width:100%;height:auto;display:block;">
+            </div>
+            <div class="fade-in" style="max-width:800px;margin:32px auto 0;text-align:center;color:var(--text-light);font-size:0.95rem;">
+                <p>Diagrama del sistema de recuperación de energía isobárico con intercambiador de presión. La salmuera a alta presión (~63 bar) ingresa al ERD, transfiere su energía al agua de alimentación, y sale a presión atmosférica. El ERD reduce la potencia requerida de la bomba HP de 2.179 kW a 0.975 kW.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-header fade-in">
+                <span class="section-tag">Instrumentación</span>
+                <h2>Diagrama de Tuberías e Instrumentación (P&amp;ID)</h2>
+                <p class="section-desc">P&amp;ID detallado del sistema SWRO mostrando las tuberías, válvulas, instrumentos y lazos de control del proceso.</p>
+            </div>
+            <div class="fade-in" style="max-width:1100px;margin:0 auto;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);">
+                <img src="../assets/images/ro_doc/image5.png" alt="P&amp;ID del Sistema SWRO" style="width:100%;height:auto;display:block;">
+            </div>
+            <div class="fade-in" style="max-width:800px;margin:32px auto 0;text-align:center;color:var(--text-light);font-size:0.95rem;">
+                <p>Diagrama de tuberías e instrumentación (P&amp;ID) del sistema de ósmosis inversa. Se especifican los diámetros de tubería, materiales, instrumentos de medición (PT, FT, CT, TT), válvulas de control y lazos de automatización SCADA.</p>
+            </div>
+        </section>
+
+        <section class="section fade-in" style="background: var(--bg-alt);">
+            <div class="section-header">
+                <span class="section-tag">Balance</span>
+                <h2>Balance de Masa SWRO</h2>
+                <p class="section-desc">Diagrama de flujo másico del proceso de ósmosis inversa para las condiciones de diseño del proyecto AQUA-8.</p>
+            </div>
+            <div class="feature-row fade-in" style="max-width:1100px;margin:0 auto;">
                 <div class="feature-content slide-in-left">
                     <h3>📊 Parámetros de Operación</h3>
                     <ul class="feature-list">
@@ -144,11 +221,15 @@
                         <li><strong>Rechazo:</strong> 5,000 L/día (salmuera, TDS ~56,000 ppm)</li>
                         <li><strong>Recuperación:</strong> 37.5% (dentro del rango 35–45%)</li>
                         <li><strong>Presión de operación:</strong> 60 bar (nominal)</li>
+                        <li><strong>Presión osmótica:</strong> 28 bar (35,000 ppm TDS)</li>
                         <li><strong>Temperatura:</strong> 25°C (promedio agua mar Caribe)</li>
-                        <li><strong>Consumo específico:</strong> 3.5–4.5 kWh/m³</li>
+                        <li><strong>Consumo específico:</strong> 2.60 kWh/m³ (con ERD)</li>
+                        <li><strong>Potencia bomba HP:</strong> 2.2 kW (3 HP)</li>
+                        <li><strong>Potencia neta con ERD:</strong> 0.975 kW</li>
+                        <li><strong>Eficiencia ERD:</strong> 92%</li>
                     </ul>
                 </div>
-                <div style="overflow:hidden;border-radius:var(--radius);"><img src="../assets/images/foto-24.jpg" alt="foto-24.jpg" class="feature-image slide-in-right" style="width:100%;height:100%;object-fit:cover;"></div>
+                <div style="overflow:hidden;border-radius:var(--radius);"><img src="../assets/images/foto-24.jpg" alt="Sistema SWRO" class="feature-image slide-in-right" style="width:100%;height:100%;object-fit:cover;"></div>
             </div>
         </section>
 
@@ -178,7 +259,6 @@
                     <li><a href="presupuesto.html">Presupuesto</a></li>
                 <li><a href="corpoguajira.html">Corpoguajira</a></li>
                 <li><a href="escalamiento.html">Escalamiento</a></li>
-                <li><a href="reverse-osmosis.html">Documento RO</a></li>
                 <li><a href="scada.html">Dashboard</a></li>
                 </ul>
             </div>
