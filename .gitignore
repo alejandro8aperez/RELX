@@ -16,3 +16,4 @@ RELX/
 # CV source files
 *.docx
 !docs/700_RELX/AQ8-007_Corregido_Final5.docx
+!relx-website/docs/R_OSMOSIS_PROYECTO_AQUA.docx
