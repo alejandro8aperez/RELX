@@ -52,8 +52,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Language toggle: use Google Translate instead of page navigation
     document.querySelectorAll('.lang-toggle a').forEach(link => {
-        const isEN = link.textContent.trim() === 'EN';
-        const isES = link.textContent.trim() === 'ES';
+        const isEN = link.textContent.trim() === 'ENGLISH';
+        const isES = link.textContent.trim() === 'ESPAÑOL';
         if (isEN || isES) {
             link.addEventListener('click', function(e) {
                 e.preventDefault();

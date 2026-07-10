@@ -33,6 +33,12 @@
 
                 <li><a href="../../pages/scada.html" class="active">Dashboard</a></li>
             </ul>
+            <div class="lang-toggle">
+                <a href="../../pages/scada.html">ESPAÑOL</a>
+                <span>/</span>
+                <a href="scada.html" class="active">ENGLISH</a>
+            </div>
+            
             <div class='nav-arrows'><a href='presupuesto.html' aria-label='Anterior'>&larr;</a><button class='mobile-toggle'>MENU</button><a class='disabled'>&rarr;</a></div>
         </div>
     </nav>
@@ -228,12 +234,7 @@
     <script src="../../js/scada.js"></script>
     <!-- Google Translate -->
     <div id="google_translate_element" style="display:none;"></div>
-    <div class="lang-float">
-        <button class="lang-float-btn" data-lang="en" onclick="translateTo('es')" title="Español">ES</button>
-        <div class="lang-float-divider"></div>
-        <button class="lang-float-btn" data-lang="en" onclick="translateTo('en')" title="English">EN</button>
-    </div>
-    <script>
+<script>
     function googleTranslateElementInit() {
         new google.translate.TranslateElement({
             pageLanguage: 'es',
