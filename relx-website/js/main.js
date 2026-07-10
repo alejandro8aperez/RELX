@@ -50,6 +50,18 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(el);
     });
     
+    // Language toggle: use Google Translate instead of page navigation
+    document.querySelectorAll('.lang-toggle a').forEach(link => {
+        const isEN = link.textContent.trim() === 'EN';
+        const isES = link.textContent.trim() === 'ES';
+        if (isEN || isES) {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                translateTo(isEN ? 'en' : 'es');
+            });
+        }
+    });
+
     // Hero particles
     createParticles();
     
