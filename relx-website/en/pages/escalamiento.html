@@ -34,7 +34,7 @@
                 <li><a href="../../pages/scada.html">Dashboard</a></li>
             </ul>
             <div class="lang-toggle">
-                <a href="../../pages/escalamiento.html">ESPAÑOL</a>
+                <a href="../../pages/escalamiento.html">ESPAï¿½OL</a>
                 <span>/</span>
                 <a href="escalamiento.html" class="active">ENGLISH</a>
             </div>
@@ -162,5 +162,22 @@
         </div>
     </footer>
     <script src="../../js/main.js"></script>
+    <!-- Google Translate -->
+    <div id="google_translate_element" style="display:none;"></div>
+<script>
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            includedLanguages: 'en,es',
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+            autoDisplay: false
+        }, 'google_translate_element');
+    }
+    function translateTo(lang) {
+        var c = document.querySelector('.goog-te-combo');
+        if (c) { c.value = lang; c.dispatchEvent(new Event('change')); }
+    }
+    </script>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
