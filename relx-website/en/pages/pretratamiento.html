@@ -206,17 +206,18 @@
     </footer>
     <script src="../../js/main.js"></script>
     <!-- Google Translate -->
-    <div id="google_translate_element" style="display:none;"></div>
+    <div id="google_translate_element" style="position:absolute;left:-9999px;top:-9999px;"></div>
 <script>
     function googleTranslateElementInit() {
         new google.translate.TranslateElement({
-            pageLanguage: 'es',
+            pageLanguage: 'en',
             includedLanguages: 'en,es',
             layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
             autoDisplay: false
         }, 'google_translate_element');
     }
     function translateTo(lang) {
+        document.cookie = 'googtrans=/es/' + lang + '; path=/';
         var c = document.querySelector('.goog-te-combo');
         if (c) { c.value = lang; c.dispatchEvent(new Event('change')); }
     }
